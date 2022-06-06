@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Ubuntu:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Poppins:wght@300;400;600&display=swap");
+/* mixins ---------------------------------------------- */
+/* basic defaults -------------------------------------- */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:not(body) {
+  transition: all 0.5s ease;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  scrollbar-width: none;
+  color: var(--color-text);
+  background-color: var(--color-basic-bg);
+  font-family: "Dosis", "Poppins", sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.hero {
+  background-image: url("../Assets/hero.jpg");
+  opacity: 40%;
+  z-index: -5;
+  background-size: cover;
+  background-position: center 60%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15em;
+  margin-bottom: 2em;
+}
+.hero__title {
+  color: white;
+  text-shadow: 1px 1px var(--color-accent);
+  padding: 0.25em;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 0.25em;
+  text-align: center;
+  margin-top: 4em;
+}
+.hero__searchbar {
+  color: var(--color-accent);
+  z-index: 2;
+  margin-bottom: 50px;
+  padding: 40px;
+}
+.hero__input-group-append {
+  border-radius: 10px;
+}
+.hero__input {
+  letter-spacing: 0.5px;
+  color: var(--color-accent);
+  background-color: var(--color-basic-bg);
+  padding: 25px;
+  border: 0.5px solid var(--color-accent);
+}
+
+.submit {
+  background-color: var(--color-accent);
+  color: var(--color-accent-combo);
+  padding-left: 15px;
+  padding-right: 15px;
+  z-index: 11;
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  transition: 0.8s ease;
+  border: solid 1px var(--color-accent);
+  padding: 15px;
+}
+
+.contact__container {
+  background-color: var(--color-bg-tint);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h2 {
+  color: var(--color-accent);
+  font-size: clamp(30px, 6vw, 60px);
+  letter-spacing: 2px;
+}
+
+.contact-box {
+  width: clamp(100px, 90%, 1000px);
+  margin: 80px 50px;
+  display: flex;
+}
+
+.contact-links,
+.contact-form-wrapper {
+  width: 50%;
+  padding: 8% 5% 10% 5%;
+  background-color: var(--color-accent);
+  opacity: 40%;
+  border-radius: 0 10px 10px 0;
+}
+
+.contact-links {
+  color: white;
+  background-image: url("../Assets/hero.jpg");
+  opacity: 60%;
+  border-radius: 10px 0 0 10px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.link {
+  margin: 10px;
+  cursor: pointer;
+  width: 50px;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.form-item__label {
+  color: var(--color-text);
+  justify-content: flex-start;
+  font-family: "Poppins", sans-serif;
+}
+.form-item__input {
+  padding: 15px;
+  border-radius: 5px;
+  color: var(--color-text);
+  align-items: flex-start;
+}
+
+button {
+  text-transform: uppercase;
+  outline: 0;
+  background: var(--color-green);
+  border: 0;
+  color: var(--color-light-green);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: scale(1.1, 1.1);
+}
+
+/* footer --------------------------------------------- */
+.footer {
+  max-width: 1800px;
+  background-image: linear-gradient(225deg, hsla(45deg, 50%, 50%, 0.8), hsla(31deg, 50%, 42.8%, 0.8), hsla(348deg, 50%, 47.1%, 0.8)), url("../Assets/hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--color-text);
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 1200px) {
+  .footer {
+    flex-direction: row;
+  }
+}
+.footer__time {
+  margin: 1em;
+  padding: 1em;
+  border-top: 1px dashed white;
+  border-bottom: 1px dashed white;
+}
+@media (max-width: 1200px) {
+  .footer__time {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-top: none;
+    border-bottom: none;
+  }
+}
+.footer__name {
+  font-weight: 700;
+}/*# sourceMappingURL=main.css.map */

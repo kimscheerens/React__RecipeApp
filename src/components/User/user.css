@@ -1,0 +1,79 @@
+.user_container {
+  background-image: linear-gradient(225deg, hsla(20deg, 20%, 42.8%, 0.8), hsla(20deg, 20%, 47.1%, 0.8)), url("../../Assets/hero.jpg");
+  background-size: cover;
+  padding: 4em;
+  margin-top: 8em;
+}
+.user_container__title {
+  margin: 4em;
+  margin-bottom: 0;
+  font-size: 28px;
+  color: white;
+  text-shadow: 1px 1px var(--color-accent);
+}
+
+.login-page {
+  width: 360px;
+  margin: auto;
+  padding-top: 2em;
+}
+
+.error {
+  color: var(--color-accent);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: var(--color-basic-bg);
+  color: var(--color-accent);
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+  outline: 0;
+  background: #f2f2f2;
+  color: var(--color-accent);
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form button {
+  text-transform: uppercase;
+  outline: 0;
+  background: var(--color-accent-light);
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: var(--color-accent);
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.form .message a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+span {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5em;
+}/*# sourceMappingURL=user.css.map */

@@ -1,0 +1,184 @@
+// weekmenu
+
+.container{
+margin-bottom: 300px; 
+background-color: var(--color-bg-tint);
+}
+
+.calendar{  
+  &__container{
+    margin: 50px;    
+  }
+}
+
+.inputCalendar{
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+
+  &__title{
+    padding: 10px;
+    width: 200px;
+    height: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--color-accent-combo);
+    align-items: flex-start;
+  }
+
+  &__date{
+    padding: 10px;
+    width: 200px;
+    height: 10px;
+    border-radius: 5px;
+    align-items: flex-start;
+    border: 2px solid var(--color-accent-combo);
+  }
+
+  &__btn{
+    background-color: white;
+    color: var(--color-accent);
+  }
+
+}
+
+.weeklyMenu-container {
+    height: 500px;
+  }
+  
+  .WeeklyMenu {
+    margin: 20px;
+  
+    &__container {
+      display: flex;
+      flex-grow: 4;
+      justify-content: space-around;
+      // width: 80%;
+      margin-left: 100px;
+  
+      &__title {
+        color: var(--color-accent);
+        margin-top: -20px;
+      }
+    }
+  
+    &__item {
+      margin-bottom: 10px;
+      width: 250px;
+      height: 250px;
+      border-radius: 5px;
+      margin-left: 20px;
+      background-color: var(--color-basic-bg);
+      box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
+    }
+  
+    &__title {
+      justify-content: center;
+      color: var(--color-accent);
+      text-shadow: 2px 2px wheat;
+    }
+  
+    &__btn-group {
+      display: flex;
+      align-items: flex-end;
+      width: 15px;
+      margin: -38px 1px 10px 1px;
+    }
+  
+    &__btn {
+      width: 5px;
+      height: 5px;
+      background-color: transparent;
+      color: var(--color-accent);
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  
+  .previous {
+    background-color: transparent;
+    border: var(--color-accent) solid 1px;
+    border-radius: 999px;
+    cursor: pointer;
+    height: 45px;
+    outline: none;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 450px;
+  
+    &__icon {
+      font-size: 25px;
+      color: var(--color-accent);
+    }
+  }
+  
+  .next {
+    background-color: transparent;
+    border: var(--color-accent) solid 1px;
+    border-radius: 999px;
+    cursor: pointer;
+    height: 45px;
+    outline: none;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 450px;
+    margin-top: -50px;
+  
+    &__icon {
+      font-size: 25px;
+      color: var(--color-accent);
+    }
+  }
+  
+  .chefshad-rating {
+    position: relative;
+    display: flex;
+    z-index: 200;
+    height: 15px;
+    width: 15px;
+    margin: 5px;
+  }
+  
+  .btn {
+    &__rating {
+      margin-right: 5px;
+      height: 40px;
+      width: 40px;
+      background-color: var(--color-bg-tint);
+    }
+  
+    &__icon {
+      height: 20px;
+      width: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .date-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    }
+
+  .date{
+    width: 100px;
+    margin-right: 10px;
+    border: var(--color-accent) 2px solid;
+    border-radius: 10px;
+    color: var(--color-accent);
+
+    &__input{
+      width: 200px;
+      margin: 10px;
+      border-radius: 10px;
+      color: var(--color-accent);
+    }
+  }
+
+  .rbc-agenda-view{
+    display: none;
+  }
