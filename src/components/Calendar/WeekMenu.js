@@ -136,7 +136,7 @@ const WeekMenu = () => {
           writeCalendarItem={writeCalendarItem}
           handleAddEvent={handleAddEvent}
           localizer={localizer}
-          events={data} // deze komen op de kalender
+          events={events} // deze komen op de kalender
           startAccessor="start"
           endAccessor="end" //that returns the end date + 1 day for those events that end at midnight.
           className="calendar__container"
