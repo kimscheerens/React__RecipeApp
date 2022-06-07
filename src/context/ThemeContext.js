@@ -43,7 +43,8 @@ export function ThemeProvider(props) {
   const lightTheme = [
     "--color-text: RGB(0, 0, 0)",
     "--color-accent: RGB(165, 32, 25)",
-    "--color-bg-tint: RGB(244, 241, 241)",
+    // "--color-bg-tint: RGB(244, 241, 241)",
+    "--color-bg-tint: RGB(255, 242, 194)",
     "--color-accent-combo: RGB(254, 208, 0)",
     "--color-accent-light: rgba(249, 182, 11, 0.2)",
     "--color-basic-bg: RGB(255, 255, 255)",

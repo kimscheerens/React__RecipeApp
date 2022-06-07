@@ -14,7 +14,7 @@ const Header = () => {
       <div className="header__container">
         <div className="upper-nav">
           <a href="/" className="upper-nav__logo">
-            <img src={img_icon} alt="letter K in fruit" height="80px" />
+            <img src={img_icon} alt="letter K in fruit" height="80px" className="upper-nav__img" />
           </a>
         </div>
         <nav className="main-nav">

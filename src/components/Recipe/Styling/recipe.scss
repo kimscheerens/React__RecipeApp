@@ -31,23 +31,21 @@ label {
 
 .label__container {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 10px;
+  align-items: flex-start;
 }
 
 .label-check {
-  margin-top: 25px;
+  margin-top: 10px;
 
   &__input {
-    margin-bottom: 20px;
-    margin-left: 50px;
+    width: 10%;
+    margin-left: 30px;
     padding: 4px;
   }
 }
 
 .popup-inner {
-  background-color: var(--color-bg-tint);
+  background-color: rgb(255, 239, 162) ;
   color: var(--color-accent);
   padding: 1rem;
   border-radius: 0.5rem;
@@ -61,6 +59,15 @@ label {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 10px;
+    padding-left: 10px;
+    box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.4);
+    background-color: var(--color-accent-combo);
+    color: var(--color-accent);   
+  }
+
+  &__btn{
+    margin-right: 10px; 
   }
 }
 
@@ -113,12 +120,14 @@ textarea {
 .form-group button {
   margin-top: 1rem;
   display: inline;
+ 
 }
 
 .two_buttons {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  
 }
 
 // recipe start
@@ -139,16 +148,17 @@ a {
   &__title {
     margin: 2em;
     margin-bottom: 0;
-    font-size: 28px;
-    color: white;
-    text-shadow: 1px 1px var(--color-accent);
+    font-size: 32px;
+    color: var(--color-accent);
+    text-shadow: 1px 1px white;
   }
 
   &__button {
     width: 150px;
     margin: 20px 0px 20px 490px;
-    color: var(--color-accent);
-    background-color: var(--color-basic-bg);
+    box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
+    background-color: var(--color-accent-combo);
+    color: var(--color-accent);  
   }
 
   &__list {
@@ -207,20 +217,30 @@ a {
     margin-left: -350px;
   }
 
-  &__btn {
+  &__btn { 
     width: 55px;
     height: 55px;
     margin: 10px 5px;
-    box-shadow: var(--color-light-green) 0px 0px 0px 1px;
-    background-color: rgb(210, 248, 149);
-    color: var(--color-light-green);
-    border: 1px solid var(--color-light-green);
+    box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
+    background-color: var(--color-accent-combo);   
+   
   }
 
-  &__btn-icon {
-    width: 20px;
-    height: 20px;
+  &__btn-view{
+    font-size: 14px;
+    width: 55px;
+    height: 55px;
+    margin: 10px 5px;
+    padding: 4px;
+    box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
+    background-color: var(--color-accent-combo);
+    color: var(--color-accent);   
   }
+ 
+}
+
+.dots{
+  font-size: 24px;
 }
 
 .labels {
@@ -261,8 +281,9 @@ a {
   justify-content: space-around;
   margin-left: 40px;
   color: black;
-  font-size: 14px;
+  font-size: 16px;
   padding-left: 4em;
+
 }
 
 h4{
@@ -487,7 +508,7 @@ h4{
   color: #241c3e;
   text-decoration: none;
   margin-left: 15px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .cont_tabs > ul > li:first-child > a {
@@ -539,7 +560,7 @@ h4{
 }
 .cont_title_preparation > p {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
   margin-left: 40px;
   text-align: left;
   color: #36354e;
@@ -553,7 +574,7 @@ h4{
   margin: 5px 0px;
   margin-left: 50px;
   border-left: 2px solid #e3e3e3;
-  font-size: 12px;
+  font-size: 14px;
   padding: 20px 0px;
   padding-left: 20px;
   text-align: left;

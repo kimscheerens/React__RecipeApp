@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Poppins:wght@300;400;600&display=swap");
 .header {
   font-family: "poppins", sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.5px;
   line-height: 20px;
 }
@@ -22,12 +22,14 @@
   padding-bottom: 10px;
 }
 .upper-nav__logo {
-  width: 300px;
   display: inline-block;
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   line-height: inherit;
   white-space: nowrap;
+}
+.upper-nav__img {
+  width: 80px;
 }
 
 .main-nav {
@@ -65,7 +67,7 @@
   margin-left: -30px;
 }
 .shop__item {
-  font-size: 8px;
+  font-size: 9px;
   color: var(--color-basic-bg);
   margin-top: -3px;
 }
@@ -91,7 +93,7 @@ li {
   left: 0;
   z-index: 10;
   margin: 0.125rem 0 0;
-  font-size: 12px;
+  font-size: 14px;
   text-align: left;
   background-color: var(--color-basic-bg);
   background-clip: padding-box;
@@ -136,7 +138,7 @@ li {
   justify-content: space-around;
   background-color: var(--color-basic-bg);
   color: var(--color-accent);
-  font-size: 14px;
+  font-size: 16px;
   border: 1px var(--color-accent) solid;
   border-radius: 60px;
 }/*# sourceMappingURL=header.css.map */

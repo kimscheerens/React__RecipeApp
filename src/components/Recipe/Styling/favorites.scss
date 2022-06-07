@@ -2,13 +2,14 @@
 
 .top-favo-recep__container {
   background-color: var(--color-bg-tint);
+  margin-top: 240px;
 }
 
 .top-recep {
   background-color: var(--color-bg-tint);
   width: 100%;
   margin-top: 3em;
-  padding-bottom: 3em;
+  // padding-bottom: 3em;
 
   &__container {
     display: flex;
@@ -31,7 +32,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    margin-bottom: 2em; 
 
     ::after {
       box-sizing: border-box;
@@ -47,8 +47,7 @@
     padding: 1em;
     border-radius: 5px;
     line-height: 1.4;
-    margin-bottom: 4em;
-
+    
     &::after {
       content: "\2192";
       padding-left: 1em;

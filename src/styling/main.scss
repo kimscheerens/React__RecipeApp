@@ -72,10 +72,10 @@ body {
 // Hero
 .hero {
   background-image: url("../Assets/hero.jpg");
-  opacity: 40%;
+  opacity: 70%;
   z-index: -5;
   background-size: cover;
-  background-position: center 60%;
+  background-position: center;
   height: 60vh;
   display: flex;
   justify-content: center;
@@ -88,7 +88,7 @@ body {
     color: white;
     text-shadow: 1px 1px var(--color-accent);
     padding: 0.25em;
-    font-size: 14px;
+    font-size: 32px;
     font-weight: bold;
     border-radius: 0.25em;
     text-align: center;
@@ -102,9 +102,9 @@ body {
     padding: 40px;
   }
 
-&__searchicon{
+// &__searchicon{
 
-}
+// }
 
   &__input-group-append {
     border-radius: 10px;
@@ -135,12 +135,14 @@ body {
 
 //contact gedeelte
 .contact{
+  
 
 &__container {
-  background-color: var(--color-bg-tint);
+  z-index: 500;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 260px;
 }
 
 }
@@ -212,9 +214,9 @@ body {
 button {
   text-transform: uppercase;
   outline: 0;
-  background: var(--color-green);
-  border: 0;
-  color: var(--color-light-green);
+  box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-accent-combo);
+  color: var(--color-accent);  
   border-radius: 10px;
   padding: 10px;
   font-size: 14px;

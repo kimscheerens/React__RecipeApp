@@ -7,6 +7,7 @@ import {
   writeFavoItem,
 } from "../../utils/crud";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { BsThreeDots } from "react-icons/bs";
 import { onSnapshot, addDoc } from "firebase/firestore";
 import ImagesUpload from "../ImagesUpload";
 
@@ -163,10 +164,11 @@ function Recipe() {
 
                 <div className="recipe-item__content">
                   <button
-                    className="recipe-item__btn"
+                    className="recipe-item__btn-view"
                     onClick={() => handleView(recipe.id)}
                   >
-                    View {recipe.viewing ? "less" : "more"}
+                    <BsThreeDots  className="dots" />
+                    {recipe.viewing ? "less" : "more"}
                   </button>
                   <button
                     className="recipe-item__btn"
@@ -188,7 +190,9 @@ function Recipe() {
                       onMouseOut={({ target }) =>
                         (target.style.color = "black")
                       }
-                      onClick={({ target }) => writeFavoItem(recipe) && (target.style.color = "black")}
+                      onClick={({ target }) =>
+                        writeFavoItem(recipe) && (target.style.color = "black")
+                      }
                     ></FaRegHeart>
                   </button>
                 </div>
@@ -197,7 +201,7 @@ function Recipe() {
                 ) : (
                   <div className="labels">
                     <span className="labels__labels">
-                    category: {recipe.category}
+                      category: {recipe.category}
                     </span>
                     <span className="labels__allergenen">
                       Allergies: {recipe.allergies}
@@ -248,6 +252,7 @@ function Recipe() {
               <h2>Add a new recipe</h2>
               <button
                 type="button"
+                className="popup-inner__btn"
                 class="remove"
                 onClick={() => setPopupActive(false)}
               >

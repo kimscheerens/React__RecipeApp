@@ -1,13 +1,13 @@
 @charset "UTF-8";
 .top-favo-recep__container {
   background-color: var(--color-bg-tint);
+  margin-top: 240px;
 }
 
 .top-recep {
   background-color: var(--color-bg-tint);
   width: 100%;
   margin-top: 3em;
-  padding-bottom: 3em;
 }
 .top-recep__container {
   display: flex;
@@ -29,7 +29,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  margin-bottom: 2em;
 }
 .top-recep__list ::after {
   box-sizing: border-box;
@@ -43,7 +42,6 @@
   padding: 1em;
   border-radius: 5px;
   line-height: 1.4;
-  margin-bottom: 4em;
 }
 .top-recep__cta::after {
   content: "→";

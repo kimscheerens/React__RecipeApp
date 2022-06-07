@@ -1,8 +1,10 @@
-
+//* styling from the shoppinglist/
 
 .shoppingList {
   width: 100%;
-  
+  margin-top: 240px;
+  background-image: (url("../../Assets/backgr.jpg"));
+   
   &__background {
   background-size: cover;
   display: flex;
@@ -11,19 +13,17 @@
   align-items: center;
   margin-bottom: 2em;  
   width: 800px;
-   background-image: url("../../Assets/shopping.jpg");
   background-repeat: no-repeat;
 }
 }
 
 .shoppingList-container {
-  background-color: var(--color-bg-tint);
-  width: 500px;
   margin-left: 150px;
   box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
 }
 
 h4 {
+  margin-top: 290px;
   color: var(--color-accent);
 }
 
