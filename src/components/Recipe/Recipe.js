@@ -20,7 +20,8 @@ function Recipe() {
     title: "",
     imageUrl: "",
     desc: "",
-    ingredients: { ingredient: "", amount: "", unit: "" },
+    // ingredients: { ingredient: "", amount: "", unit: "" },
+    ingredients: [],
     steps: [],
     category: "",
     allergies: "",
@@ -88,7 +89,8 @@ function Recipe() {
       title: "",
       imageUrl: "",
       desc: "",
-      ingredients: { ingredient: "", amount: "", unit: "" },
+      ingredients: [],
+      // ingredients: { ingredient: "", amount: "", unit: "" },
       steps: [],
       category: "",
       allergies: "",
@@ -125,14 +127,15 @@ function Recipe() {
   const handleIngredientCount = () => {
     setForm({
       ...form,
-      ingredients: [
-        ...form.ingredients,
-        {
-          ingredient: "",
-          amount: "",
-          unit: "",
-        },
-      ],
+      ingredients: [...form.ingredients, ""],
+      // ingredients: [
+      //   ...form.ingredients,
+      //   {
+      //     ingredient: "",
+      //     amount: "",
+      //     unit: "",
+      //   },
+      // ],
     });
   };
 
@@ -386,6 +389,15 @@ function Recipe() {
               <div className="form-group">
                 <label>Ingredients:</label>
                 {form.ingredients.map((ingredient, i) => (
+                  <input
+                    className="form-group__input"
+                    type="text"
+                    placeholder="enter one ingrediënt..."
+                    key={i}
+                    value={ingredient}
+                    onChange={(e) => handleIngredient(e, i)}
+                  />
+                  /* {form.ingredients.map((ingredient, i) => (
                   <div key={i}>
                     <input
                       className="form-group__input"
@@ -414,7 +426,7 @@ function Recipe() {
                       // value={unit}
                       onChange={(e) => handleIngredient(e, i)}
                     />
-                  </div>
+                  </div> */
                 ))}
                 <button type="button" onClick={handleIngredientCount}>
                   Add ingredient

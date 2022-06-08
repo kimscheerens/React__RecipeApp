@@ -228,9 +228,14 @@ a {
 }
 .labels__labels {
   flex-direction: column;
+  margin-left: 40px;
 }
 .labels__info {
   justify-content: flex-end;
+  margin-left: 40px;
+}
+.labels__allergenen {
+  margin-left: 40px;
 }
 
 .numbre_container {
@@ -253,7 +258,7 @@ a {
 .aside {
   display: flex;
   color: var(--color-text);
-  margin-left: 40px;
+  margin-left: 60px;
   font-size: 16px;
   padding-left: 4em;
 }

@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BsThreeDots as Dots } from "react-icons/bs";
-import { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { updateIngredientsByPersons } from "./VariablesRecipe";
 import {
@@ -14,8 +13,14 @@ import { db } from "../../utils/firebase";
 import { useParams } from "@gatsbyjs/reach-router";
 import CountingPersons from "./CountingPersons";
 import Modal from "./Modal";
+/** https://www.npmjs.com/package/react-datepicker */
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function RecipeDetail() {
+  /**add to calendar */
+  const [startDate, setStartDate] = useState(new Date());
+
   /** how to get the detail of the recipe */
   const [recipeDetail, setRecipeDetails] = useState(null);
   const { recipeid } = useParams();
@@ -47,6 +52,10 @@ function RecipeDetail() {
       }
     });
     setRecipeDetails(recipesClone);
+  };
+
+  const handleDateSelect = (e) => {
+    console.log(e);
   };
 
   return (
@@ -89,11 +98,12 @@ function RecipeDetail() {
                   onClick={() => writeFavoItem(recipeDetail)}
                 ></FaRegHeart>
               </button>
-              <button
-                className="recipe-item__btn"
-                onClick={() => writeCalendarItem(recipeDetail, recipeDetail.id)}
-              >
-                <Dots className="dots" />
+              <button className="recipeDetail__btn-date">
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  onSelect={handleDateSelect} //when day is clicked
+                />
               </button>
             </div>
             <div className="Detail">

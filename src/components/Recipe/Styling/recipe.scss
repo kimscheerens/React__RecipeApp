@@ -252,10 +252,16 @@ a {
 
   &__labels {
     flex-direction: column;
+    margin-left: 40px;
   }
 
   &__info {
     justify-content: flex-end;
+    margin-left: 40px;
+  }
+
+  &__allergenen{
+    margin-left: 40px;
   }
 }
 
@@ -279,7 +285,7 @@ a {
 .aside {
   display: flex;
   color: var(--color-text);
-  margin-left: 40px;
+  margin-left: 60px;
   font-size: 16px;
   padding-left: 4em;
 

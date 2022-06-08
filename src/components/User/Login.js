@@ -1,11 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Link } from "@gatsbyjs/reach-router";
 import { login, logout, useAuth } from "../../utils/useAuth";
+import { useNavigate } from "@gatsbyjs/reach-router";
 
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const currentUser = useAuth();
+  const nav = useNavigate();
 
   // const { login } = useAuth();
   const [error, setError] = useState("");
@@ -16,6 +18,7 @@ export default function Login() {
     try {
       console.log(handleLogin);
       await login(emailRef.current.value, passwordRef.current.value);
+      nav("/");
     } catch {
       alert("Failed to sign in");
     }
