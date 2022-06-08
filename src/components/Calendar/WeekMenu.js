@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Calendar,
   dateFnsLocalizer,
@@ -73,7 +73,7 @@ const WeekMenu = () => {
         return {
           id: doc.id,
           title: doc.title,
-          date: doc.date, // toDate() om een timestamp te krijgen?
+          date: new Date(doc.date * 1000),
           ...doc.data(),
         };
       });
@@ -98,7 +98,7 @@ const WeekMenu = () => {
   }
 
   return (
-    <Fragment>
+<>
       <div className="weeklyMenu-container">
         <h2 className="recipeDetail__title">Weekly Menu</h2>
         <div>
@@ -142,7 +142,7 @@ const WeekMenu = () => {
           className="calendar__container"
         />
       </div>
-    </Fragment>
+ </>
   );
 };
 

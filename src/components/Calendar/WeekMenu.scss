@@ -1,13 +1,10 @@
 // weekmenu
-
-.container{
-margin-bottom: 300px; 
-background-color: var(--color-bg-tint);
-}
-
-.calendar{  
+.calendar{   
   &__container{
-    margin: 50px;    
+    margin: -40px 50px 0px 200px;    
+    width: 900px;
+    height: 1000px;
+    padding-bottom: 50px;
   }
 }
 
@@ -40,99 +37,7 @@ background-color: var(--color-bg-tint);
   }
 
 }
-
-.weeklyMenu-container {
-    height: 500px;
-  }
-  
-  .WeeklyMenu {
-    margin: 20px;
-  
-    &__container {
-      display: flex;
-      flex-grow: 4;
-      justify-content: space-around;
-      // width: 80%;
-      margin-left: 100px;
-  
-      &__title {
-        color: var(--color-accent);
-        margin-top: -20px;
-      }
-    }
-  
-    &__item {
-      margin-bottom: 10px;
-      width: 250px;
-      height: 250px;
-      border-radius: 5px;
-      margin-left: 20px;
-      background-color: var(--color-basic-bg);
-      box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
-    }
-  
-    &__title {
-      justify-content: center;
-      color: var(--color-accent);
-      text-shadow: 2px 2px wheat;
-    }
-  
-    &__btn-group {
-      display: flex;
-      align-items: flex-end;
-      width: 15px;
-      margin: -38px 1px 10px 1px;
-    }
-  
-    &__btn {
-      width: 5px;
-      height: 5px;
-      background-color: transparent;
-      color: var(--color-accent);
-      display: flex;
-      flex-direction: row;
-    }
-  }
-  
-  .previous {
-    background-color: transparent;
-    border: var(--color-accent) solid 1px;
-    border-radius: 999px;
-    cursor: pointer;
-    height: 45px;
-    outline: none;
-    width: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 450px;
-  
-    &__icon {
-      font-size: 25px;
-      color: var(--color-accent);
-    }
-  }
-  
-  .next {
-    background-color: transparent;
-    border: var(--color-accent) solid 1px;
-    border-radius: 999px;
-    cursor: pointer;
-    height: 45px;
-    outline: none;
-    width: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 450px;
-    margin-top: -50px;
-  
-    &__icon {
-      font-size: 25px;
-      color: var(--color-accent);
-    }
-  }
-  
+ 
   .chefshad-rating {
     position: relative;
     display: flex;

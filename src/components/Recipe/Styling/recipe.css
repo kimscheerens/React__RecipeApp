@@ -252,11 +252,13 @@ a {
 
 .aside {
   display: flex;
-  justify-content: space-around;
+  color: var(--color-text);
   margin-left: 40px;
-  color: black;
   font-size: 16px;
   padding-left: 4em;
+}
+.aside__persons {
+  margin: 0 25px 0 25px;
 }
 
 h4 {
@@ -317,7 +319,7 @@ h4 {
   position: absolute;
   width: 0px;
   top: 0px;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-left: 60px;
   height: 400px;
   float: left;
@@ -424,8 +426,7 @@ h4 {
 .cont_tabs {
   position: relative;
   margin-left: 50px;
-  width: 300px;
-  height: 60px;
+  width: 405px;
   border-bottom: 3px solid #ededec;
 }
 

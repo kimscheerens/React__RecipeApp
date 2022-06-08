@@ -7,6 +7,7 @@
   font-weight: 400;
 }
 .recipeDetail__container {
+  margin-top: 220px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -39,20 +40,40 @@
   display: flex;
   justify-content: center;
   margin-top: -480px;
-  margin-left: 150px;
+  margin-left: 400px;
 }
 .recipeDetail__btn {
   width: 55px;
   height: 55px;
   margin-left: 10px;
-  box-shadow: var(--color-light-green) 0px 0px 0px 1px;
-  background-color: rgb(210, 248, 149);
-  color: var(--color-light-green);
-  border: 1px solid var(--color-light-green);
+  box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
+  background-color: var(--color-accent-combo);
 }
 .recipeDetail__btn-icon {
   width: 20px;
   height: 20px;
+}
+.recipeDetail__aside {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+  font-size: 16px;
+}
+
+.recipeDetail-container {
+  width: 200px;
+  height: 650px;
+  display: flex;
+  align-items: flex-start;
+  margin-top: -280px;
+}
+.recipeDetail-container__list {
+  margin-left: 20px;
+  align-items: flex-start;
+}
+.recipeDetail-container__list-two {
+  margin-left: 100px;
+  align-items: flex-start;
 }
 
 .Detail {
@@ -64,9 +85,66 @@
 }
 
 .count-btn {
-  margin: 3px;
-  padding-top: 4px;
+  margin: 4px;
+  padding: 2px;
   background-color: var(--color-bg-tint);
   box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
   color: var(--color-text);
+}
+
+.modal__btn {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin-left: 600px;
+}
+.modal__btngroup {
+  display: flex;
+  justify-content: space-around;
+}
+.modal__subtitle {
+  margin-bottom: 5px;
+}
+.modal__input {
+  border-radius: 3px;
+  padding: 8px;
+  background-color: var(--color-basic-bg);
+  color: var(--color-accent);
+  margin-left: 5px;
+  align-items: flex-start;
+}
+.modal__imgGroup {
+  display: flex;
+  justify-content: space-around;
+}
+.modal__img {
+  width: 200px;
+  height: 150px;
+  margin-left: 40px;
+}
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  text-align: left;
+}
+
+.recipeUpdate {
+  background-color: rgb(255, 239, 162);
+  color: var(--color-accent);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 650px;
+  overflow: auto;
+  z-index: 20;
+  max-height: calc(100vh - 4rem);
 }/*# sourceMappingURL=recipeDetail.css.map */

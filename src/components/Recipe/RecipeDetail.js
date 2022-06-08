@@ -13,10 +13,15 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../utils/firebase";
 import { useParams } from "@gatsbyjs/reach-router";
 import CountingPersons from "./CountingPersons";
+import Modal from "./Modal";
 
 function RecipeDetail() {
+  /** how to get the detail of the recipe */
   const [recipeDetail, setRecipeDetails] = useState(null);
   const { recipeid } = useParams();
+
+  /**how to open the modal to update the recipe */
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     const oneRecipeRef = doc(db, "recept", recipeid);
@@ -44,11 +49,6 @@ function RecipeDetail() {
     setRecipeDetails(recipesClone);
   };
 
-  // const getRecipe = (e) => {
-  //   setRecipeDetails(e.target.value);
-  //   console.log(e.target.value);
-  // };
-
   return (
     <section className="recipeDetail">
       <h2 className="recipeDetail__title"> Detail recipe:</h2>
@@ -72,10 +72,18 @@ function RecipeDetail() {
               </button>
               <button
                 className="recipeDetail__btn"
-                onClick={() => updateRecipe(recipeDetail.id, {})}
+                onClick={() => {
+                  setOpenModal(true);
+                }}
               >
                 ✏️
               </button>
+              {openModal && (
+                <Modal
+                  closeModal={setOpenModal}
+                  recipeDetailid={recipeDetail}
+                />
+              )}
               <button className="recipeDetail__btn">
                 <FaRegHeart
                   onClick={() => writeFavoItem(recipeDetail)}
@@ -89,7 +97,7 @@ function RecipeDetail() {
               </button>
             </div>
             <div className="Detail">
-              <aside className="aside">
+              <aside className="recipeDetail__aside">
                 <span className="aside__time">
                   Preparation time: {recipeDetail.time}
                   <i>⏱️</i>
@@ -99,32 +107,24 @@ function RecipeDetail() {
                   Price: {recipeDetail.price} €
                 </span>
               </aside>
-              <div className="cont_over_hidden">
-                <div className="cont_tabs">
-                  <ul>
-                    <li>
-                      <h4>INGREDIENTS</h4>
-                      <div className="cont_text_ingredients">
-                        {recipeDetail.ingredients.map((ingredient, i) => (
-                          <li key={i}>{ingredient}</li>
-                        ))}
-                      </div>
-                    </li>
-                    <li>
-                      <h4>PREPARATION</h4>
-                    </li>
-                  </ul>
-                </div>
-                <div className="cont_text_det_preparation">
-                  <h4 className="cont_title_preparation">Steps</h4>
-                </div>
-                <div className="cont_info_preparation">
-                  <ol className="cont_text_det_preparation">
+              <div className="recipeDetail-container">
+                <li>
+                  <h4 id="ingredients">INGREDIENTS</h4>
+                  <div>
+                    {recipeDetail.ingredients.map((ingredient, i) => (
+                      <li key={i}>{ingredient}</li>
+                    ))}
+                  </div>
+                </li>
+                <li className="recipeDetail-container__list-two">
+                  <h4 id="preparation">PREPARATION</h4>
+                  <h5>Steps</h5>
+                  <ol>
                     {recipeDetail.steps.map((step, i) => (
                       <li key={i}>{step}</li>
                     ))}
                   </ol>
-                </div>
+                </li>
               </div>
             </div>
           </div>

@@ -5,10 +5,10 @@ const CountingPersons = () => {
 
   return (
     <>
-      <p>
+      <span>
         Persons: <button onClick={() => setCount(count - 1)} className="count-btn"> - </button>
         {count} 🍴 <button onClick={() => setCount(count + 1)} className="count-btn"> + </button>
-      </p>
+      </span>
     </>
   );
 };

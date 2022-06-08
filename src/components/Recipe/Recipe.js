@@ -20,13 +20,16 @@ function Recipe() {
     title: "",
     imageUrl: "",
     desc: "",
-    ingredients: [],
+    ingredients: { ingredient: "", amount: "", unit: "" },
     steps: [],
     category: "",
     allergies: "",
     time: "",
   });
+  /**popup to create a recipe */
   const [popupActive, setPopupActive] = useState(false);
+  /** modal to update a recipe */
+  const [openModal, setOpenModal] = useState(false);
 
   // to query on the data , get the pagination: https://firebase.google.com/docs/firestore/query-data/query-cursors
 
@@ -72,7 +75,7 @@ function Recipe() {
       !form.ingredients ||
       !form.steps ||
       !form.allergies ||
-      !form.label ||
+      !form.category ||
       !form.time
     ) {
       alert("Please fill out all fields");
@@ -85,9 +88,9 @@ function Recipe() {
       title: "",
       imageUrl: "",
       desc: "",
-      ingredients: [],
+      ingredients: { ingredient: "", amount: "", unit: "" },
       steps: [],
-      label: "",
+      category: "",
       allergies: "",
       time: "",
     });
@@ -122,7 +125,14 @@ function Recipe() {
   const handleIngredientCount = () => {
     setForm({
       ...form,
-      ingredients: [...form.ingredients, ""],
+      ingredients: [
+        ...form.ingredients,
+        {
+          ingredient: "",
+          amount: "",
+          unit: "",
+        },
+      ],
     });
   };
 
@@ -167,7 +177,7 @@ function Recipe() {
                     className="recipe-item__btn-view"
                     onClick={() => handleView(recipe.id)}
                   >
-                    <BsThreeDots  className="dots" />
+                    <BsThreeDots className="dots" />
                     {recipe.viewing ? "less" : "more"}
                   </button>
                   <button
@@ -175,12 +185,6 @@ function Recipe() {
                     onClick={() => deleteItem(recipe.id)}
                   >
                     🗑️
-                  </button>
-                  <button
-                    className="recipe-item__btn"
-                    onClick={() => updateRecipe(recipe.id, {})}
-                  >
-                    ✏️
                   </button>
                   <button className="recipe-item__btn">
                     <FaRegHeart
@@ -356,8 +360,10 @@ function Recipe() {
                   className="select_box"
                   name="label"
                   type="text"
-                  value={form.label}
-                  onChange={(e) => setForm({ ...form, label: e.target.value })}
+                  value={form.category}
+                  onChange={(e) =>
+                    setForm({ ...form, category: e.target.value })
+                  }
                 >
                   <option className="select_box__text">
                     Chose Dinner moment
@@ -380,14 +386,35 @@ function Recipe() {
               <div className="form-group">
                 <label>Ingredients:</label>
                 {form.ingredients.map((ingredient, i) => (
-                  <input
-                    className="form-group__input"
-                    type="text"
-                    placeholder="enter one ingrediënt..."
-                    key={i}
-                    value={ingredient}
-                    onChange={(e) => handleIngredient(e, i)}
-                  />
+                  <div key={i}>
+                    <input
+                      className="form-group__input"
+                      type="text"
+                      name="ingredient"
+                      placeholder="enter one ingrediënt..."
+                      key={i}
+                      value={ingredient}
+                      onChange={(e) => handleIngredient(e, i)}
+                    />
+                    <input
+                      className="form-group__input"
+                      type="text"
+                      name="amount"
+                      placeholder="amount..."
+                      key={i}
+                      // value={amount}
+                      onChange={(e) => handleIngredient(e, i)}
+                    />
+                    <input
+                      className="form-group__input"
+                      type="text"
+                      name="unit"
+                      placeholder="unit..."
+                      key={i}
+                      // value={unit}
+                      onChange={(e) => handleIngredient(e, i)}
+                    />
+                  </div>
                 ))}
                 <button type="button" onClick={handleIngredientCount}>
                   Add ingredient
