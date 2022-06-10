@@ -7,7 +7,6 @@ function Overview() {
   const recipes = useCollection("recept", filters);
 
   console.log(recipes);
-
   return (
     <>
       <div>overview</div>
@@ -24,3 +23,4 @@ function Overview() {
 }
 
 export default Overview;
+

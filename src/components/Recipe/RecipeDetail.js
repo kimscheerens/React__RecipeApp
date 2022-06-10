@@ -27,6 +27,7 @@ function RecipeDetail() {
 
   /**how to open the modal to update the recipe */
   const [openModal, setOpenModal] = useState(false);
+  const [recipeToEdit, setRecipeToEdit] = useState(null);
 
   useEffect(() => {
     const oneRecipeRef = doc(db, "recept", recipeid);
@@ -84,6 +85,8 @@ function RecipeDetail() {
                 onClick={() => {
                   setOpenModal(true);
                 }}
+                recipeToEdit={recipeToEdit}
+                setRecipeToEdit={setRecipeToEdit}
               >
                 ✏️
               </button>
@@ -103,6 +106,7 @@ function RecipeDetail() {
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
                   onSelect={handleDateSelect} //when day is clicked
+                  onClick={() => writeCalendarItem(recipeDetail)}
                 />
               </button>
             </div>
@@ -120,6 +124,15 @@ function RecipeDetail() {
               <div className="recipeDetail-container">
                 <li>
                   <h4 id="ingredients">INGREDIENTS</h4>
+                  <button
+                    className="button-shop"
+                    recipeShop={recipeDetail.ingredients}
+                    // onClick={() => {
+                    //   updateShop();
+                    // }}
+                  >
+                    🛒
+                  </button>
                   <div>
                     {recipeDetail.ingredients.map((ingredient, i) => (
                       <li key={i}>{ingredient}</li>

@@ -5,6 +5,10 @@
   padding-bottom: 50px;
 }
 
+.rbc-calendar {
+  color: var(--color-accent);
+}
+
 .inputCalendar {
   display: flex;
   flex-direction: column;

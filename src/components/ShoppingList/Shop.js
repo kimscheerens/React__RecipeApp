@@ -6,7 +6,8 @@ import { useCounter } from "../../state/useCounter";
 
 //crud for the shopping
 
-function Shop() {
+function Shop({recipeShop}) {
+  console.log(recipeShop);
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState({
     id: "",

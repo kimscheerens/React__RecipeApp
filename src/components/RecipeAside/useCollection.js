@@ -2,19 +2,20 @@ import { collection, doc, onSnapshot, query, where } from "firebase/firestore";
 import { db } from "../../utils/firebase";
 import React, { useEffect, useState } from "react";
 
-const useCollection = (c, filterObject = {label:["lunch"]}) => {
+const useCollection = (id, filterObject = { category: ["lunch"] }) => {
   const [data, setData] = useState([]);
 
   console.log(filterObject);
+  console.log(id);
   /**
    * {filterObject
-   * category:["Breakfast"]
+   * category:["lunch"]
    * }
    */
 
   useEffect(() => {
     let unsub;
-    let ref = collection(db, "recep");
+    let ref = collection(db, id);
     console.log(ref);
     const filters = Object.entries(filterObject);
     if (filters.lenght === 0) {
@@ -42,7 +43,7 @@ const useCollection = (c, filterObject = {label:["lunch"]}) => {
       });
     }
     return () => unsub();
-  }, [c, JSON.stringify(filterObject)]);
+  }, [id, JSON.stringify(filterObject)]);
   console.log(data);
 
   if (!data) return null;

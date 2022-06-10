@@ -5,8 +5,10 @@ import { db, storage } from "../../utils/firebase";
 import { useParams } from "@gatsbyjs/reach-router";
 import { v4 } from "uuid";
 
-const Modal = ({ closeModal, recipeDetailid }) => {
+const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
   const { recipeId } = useParams();
+  console.log(recipeId);
+  console.log(recipeDetailid);
 
   const [newTitle, setNewTitle] = useState(recipeDetailid.title);
   const [newCategory, setNewCategory] = useState(recipeDetailid.category);
@@ -20,8 +22,8 @@ const Modal = ({ closeModal, recipeDetailid }) => {
   const [newSteps, setNewSteps] = useState(recipeDetailid.steps);
   const [newDescription, setNewDescription] = useState(recipeDetailid.desc);
 
-  const handleEdit = async (recipeId) => {
-    await updateDoc(doc(db, "recept", recipeId), {
+  const handleEdit = async recipeDetailid => {
+    await updateDoc(doc(db, "recept", recipeDetailid), {
       title: newTitle,
       category: newCategory,
       allergies: newAllergie,
@@ -69,7 +71,6 @@ const Modal = ({ closeModal, recipeDetailid }) => {
     values.splice(index, 1);
     setNewIngredients(values);
   };
-
 
   return (
     <div className="modalBackground">
@@ -193,7 +194,7 @@ const Modal = ({ closeModal, recipeDetailid }) => {
 
         <h3 className="modal__subtitle">Preparation time:</h3>
         <input
-          type="text"
+          type="numbre"
           name="time"
           className="modal__input"
           value={recipeDetailid.time}
@@ -248,6 +249,7 @@ const Modal = ({ closeModal, recipeDetailid }) => {
             type="button"
             onClick={() => {
               handleEdit(recipeId);
+              setRecipeToEdit(null);
             }}
           >
             update Recipe

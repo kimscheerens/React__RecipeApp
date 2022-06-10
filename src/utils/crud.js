@@ -118,7 +118,7 @@ export const writeCalendarItem = async (recipeDetail) => {
   const payload = {
     id: `${recipeDetail.id}`,
     title: `${recipeDetail.title}`,
-    date: "",
+    date: {onselect},
   };
   await addDoc(calendarRef, payload);
   console.log(calendarRef);

@@ -31,9 +31,11 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-const WeekMenu = () => {
+const WeekMenu = ( {recipeCalender, handleDateSelect}) => {
   const [data, setData] = useState([]);
-
+console.log(handleDateSelect);
+console.log(recipeCalender);
+  
   useEffect(() => {
     // here mounts the data, get the data form firestore (query & onSnapshot)
     const q = query(collection(db, "WeekPlanner"));

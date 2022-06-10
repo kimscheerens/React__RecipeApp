@@ -46,7 +46,7 @@ export const Filter = ({ setFilters, selectedFilters }) => {
             <input
               type="checkbox"
               // id={`default-${type}-breakfast`}
-              label="breakfast"
+              category="breakfast"
               value="breakfast"
               name="category"
               checked={selectedFilters.category?.includes("breakfast")}
@@ -58,7 +58,7 @@ export const Filter = ({ setFilters, selectedFilters }) => {
             <label className="filter-list-label"></label>
             <input
               type="checkbox"
-              label="lunch"
+              category="lunch"
               value="lunch"
               name="category"
               checked={selectedFilters.category?.includes("lunch")}
@@ -70,7 +70,7 @@ export const Filter = ({ setFilters, selectedFilters }) => {
             <label className="filter-list-label"></label>
             <input
               type="checkbox"
-              label="dinner"
+              category="dinner"
               value="dinner"
               name="category"
               checked={selectedFilters.category?.includes("dinner")}
@@ -82,7 +82,7 @@ export const Filter = ({ setFilters, selectedFilters }) => {
             <label className="filter-list-label"></label>
             <input
               type="checkbox"
-              label="snacks"
+              category="snacks"
               value="snacks"
               name="category"
               checked={selectedFilters.category?.includes("snacks")}
@@ -92,7 +92,7 @@ export const Filter = ({ setFilters, selectedFilters }) => {
           </li>
         </ul>
       </div>
-      <div className="filter-section">
+      {/* <div className="filter-section">
         <h3 className="filter-section__title">Prep Time: </h3>
         <ul className="filter-list">
           <li className="filter-list__item">
@@ -194,7 +194,7 @@ export const Filter = ({ setFilters, selectedFilters }) => {
             <span>16 €</span>
           </li>
         </ul>
-      </div>
+      </div> */}
     </form>
   );
 };

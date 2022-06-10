@@ -98,6 +98,13 @@
   color: var(--color-text);
 }
 
+.button-shop {
+  margin-top: -30px;
+  width: 38px;
+  height: 38px;
+  padding: 5px;
+}
+
 .modal__btn {
   border: none;
   background: none;

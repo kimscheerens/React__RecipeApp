@@ -172,6 +172,7 @@ a {
 
 .recipe-item {
   margin: 10em;
+ padding-bottom: 80px;
   background-color: var(--color-bg-tint);
   border-radius: 15px;
   display: flex;
@@ -187,6 +188,7 @@ a {
     justify-content: flex-start;
     flex-direction: column;
     margin-top: -480px;
+   
   }
 
   &__title {
