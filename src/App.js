@@ -9,6 +9,7 @@ import "../src/components/RecipeAside/Styling/RecipeAside.css";
 import "../src/components/ShoppingList/Shopping.css";
 import "../src/components/User/user.css";
 import "../src/components/Calendar/WeekMenu.css";
+import "../src/components/Restaurant/restaurant.css";
 
 import React from "react";
 
@@ -31,7 +32,6 @@ import Overview from "./components/RecipeAside/Overview";
 import { Router } from "@gatsbyjs/reach-router";
 import { RecipeProvider } from "./context/RecipeContext";
 
-
 function App() {
   return (
     <div className="App">
@@ -41,11 +41,11 @@ function App() {
           <Home exact path="/" />
           <Recipe path="/RecipeList" />
           <RecipeDetail path="/recipe/:recipeid" />
-          <Overview path="/Overview"/>
+          <Overview path="/Overview" />
           <Favorites path="/favorites" />
           <WeekMenu path="/RecipeList/WeekMenu" />
           <Shop path="/shop" />
-          <Restaurant path="/Restaurant" />
+          <Restaurant path="/restaurant" />
           <CreateUser path="/CreateUser" />
           <Login path="/Login" />
           <Contact path="/contact" />

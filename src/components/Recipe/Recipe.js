@@ -6,7 +6,7 @@ import {
   recipeCollectionRef,
   writeFavoItem,
 } from "../../utils/crud";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaSearch } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import { onSnapshot, addDoc } from "firebase/firestore";
 import ImagesUpload from "../ImagesUpload";
@@ -21,7 +21,7 @@ function Recipe() {
     imageUrl: "",
     desc: "",
     // ingredients: { ingredient: "", amount: "", unit: "" },
-    ingredients: [],
+    ingredients: [{ ingredient: "", amount: "", unit: "" }],
     steps: [],
     category: "",
     allergies: "",
@@ -89,7 +89,7 @@ function Recipe() {
       title: "",
       imageUrl: "",
       desc: "",
-      ingredients: [],
+      ingredients: [{ ingredient: "", amount: "", unit: "" }],
       // ingredients: { ingredient: "", amount: "", unit: "" },
       steps: [],
       category: "",
@@ -127,15 +127,15 @@ function Recipe() {
   const handleIngredientCount = () => {
     setForm({
       ...form,
-      ingredients: [...form.ingredients, ""],
-      // ingredients: [
-      //   ...form.ingredients,
-      //   {
-      //     ingredient: "",
-      //     amount: "",
-      //     unit: "",
-      //   },
-      // ],
+      // ingredients: [...form.ingredients, ""],
+      ingredients: [
+        ...form.ingredients,
+        {
+          ingredient: "",
+          amount: "",
+          unit: "",
+        },
+      ],
     });
   };
 
@@ -144,6 +144,13 @@ function Recipe() {
       ...form,
       steps: [...form.steps, ""],
     });
+  };
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("hello");
   };
 
   return (
@@ -156,6 +163,19 @@ function Recipe() {
         >
           Add recipe
         </button>
+        <div onSubmit={submitHandler}>
+          <div className="search">
+            <input
+              className="search__input"
+              onChange={(e) => setSearchTerm(e.target.value)}
+              type="text"
+              value={searchTerm}
+              placeholder="search recipe..."
+            />
+            <FaSearch className="search__icon"></FaSearch>
+          </div>
+        </div>
+
         <div className="recipe-collection">
           <ul className="recipe__list">
             {recipes.map((recipe, i) => (

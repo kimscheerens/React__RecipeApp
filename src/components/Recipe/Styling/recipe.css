@@ -692,4 +692,21 @@ h4 {
   height: 20px;
   width: 20px;
   margin-bottom: 20px;
+}
+
+.search {
+  margin-left: 300px;
+  width: 400px;
+  height: 50px;
+  display: flex;
+}
+.search__input {
+  border-radius: 5px 0 0 5px;
+  padding: 15px;
+  align-content: flex-start;
+}
+.search__icon {
+  border: var(--color-accent) 2px solid;
+  border-radius: 0 5px 5px 0;
+  padding: 5px;
 }/*# sourceMappingURL=recipe.css.map */

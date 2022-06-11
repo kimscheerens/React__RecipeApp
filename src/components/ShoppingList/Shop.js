@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../../utils/firebase";
-import { updateShopping, deleteShopping } from "../../utils/crud";
-import { collection, onSnapshot } from "firebase/firestore";
+import { updateCart, deleteShopping } from "../../utils/crud";
+import { collection, increment, onSnapshot, updateDoc } from "firebase/firestore";
 import { useCounter } from "../../state/useCounter";
 
 //crud for the shopping
 
-function Shop({recipeShop}) {
+function Shop({ recipeShop }) {
   console.log(recipeShop);
+  //  const [count, setCount] = useState(`${i.quantity}`);
+   const [count, setCount] = useState(null);
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState({
     id: "",
@@ -17,7 +19,7 @@ function Shop({recipeShop}) {
     cart: false,
     quantity: "",
   });
-  const [count, setCount] = useState({ quantity: "" });
+ 
 
   // to get all the data from firestore
   const shoppingCollectionRef = collection(db, "shoppingCart");
@@ -45,18 +47,6 @@ function Shop({recipeShop}) {
     db.collection("shoppingCart").doc(`${item.id}`).set(item, { merge: true });
   }
 
-  function increase(item, quantity) {
-    db.collection("shoppingCart")
-      .doc(`${item.id}`)
-      .update("quantity", quantity.increment(1));
-  }
-
-  function decrease(item, quantity) {
-    db.collection("shoppingCart")
-      .doc(`${item.id}`)
-      .update("quantity", quantity.increment(-1));
-  }
-
   function total() {
     let x = 0;
     cart.map((i) => {
@@ -65,13 +55,14 @@ function Shop({recipeShop}) {
     return x;
   }
 
+
+
   return (
     <>
       <section className="shoppingList">
-        <h4>Your ShoppingList 🛒</h4>
-        <div className="shoppingList__background"></div>
-        <table classNameName="shoppingList-container">
-          <thead classNameName="shoppingList-header">
+        <h4 className="shoppingList__title">Your ShoppingList 🛒</h4>
+        <table className="shoppingList-container">
+          <thead className="shoppingList-header">
             <tr>
               <th>#</th>
               <th>Product</th>
@@ -91,19 +82,19 @@ function Shop({recipeShop}) {
                 <td>{i.name}</td>
                 <td>{i.price} €</td>
                 <td>
-                  <button onClick={() => decrease(i)} classNameName="btn__sm">
+                  <button onClick={() => setCount(count -1)} className="btn__sm">
                     -
                   </button>
-                  {i.quantity}
+                  {count}
                   <button
-                    onClick={() => increase(i)}
-                    classNameName="btn__sm"
+                    onClick={() => setCount(count +1)}
+                    className="btn__sm"
                     size="sm"
                   >
                     +
                   </button>
                   <button
-                    classNameName="btn__sm"
+                    className="btn__sm"
                     onClick={() => deleteShopping(cart.id)}
                   >
                     🗑️
@@ -115,15 +106,14 @@ function Shop({recipeShop}) {
           <button onClick={() => addtocart}>add to cart</button>
         </table>
 
-        <div classNameName="total">
-          <div classNameName="total__item">
+        <div className="total">
+          <div className="total__item">
             <h4>TOTAL: {total()} €</h4>
           </div>
           <span>
             Printlist
-            <button onClick={() => window.print()} classNameName="printer">
-              {" "}
-              🖨️{" "}
+            <button onClick={() => window.print()} className="printer">
+              🖨️
             </button>
           </span>
         </div>

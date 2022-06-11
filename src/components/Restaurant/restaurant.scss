@@ -1,10 +1,58 @@
 .restaurant{
- margin-top: 500px;
- height: 800px;
-width: 80%;
+    background-color: var(--color-bg-tint);
+
+    &__title{  
+        padding-top: 250px;
+        margin: 2em;
+        margin-bottom: 0;
+        font-size: 32px;
+        color: var(--color-accent);
+        text-shadow: 1px 1px white;
+    }
 
     &__container{
-       background-color: green;
-        
+       width: 100%;
+       display: flex;
+       justify-content: row;
+    }
+
+    &__select_box{
+        display: flex;
+        margin-left: 50px;
+        width: 100px;
+        border-radius: 5px;
+        color: var(--color-accent);
+    }
+
+    &__list{
+        width: 500px;
+        height: 500px;
+        border: 5px solid black;
+    }
+}
+
+.google-map{
+    width: 500px;
+    height: 500px;
+    margin: 30px;
+    box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
+}
+
+.map-container{
+    border: 2px solid green;
+}
+
+.PlaceDetailCard{
+    color: var(--color-accent);
+    width: 300px;
+    margin-top: 30px;
+    padding: 5px;
+    background-color: var(--color-bg-tint);
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
+
+    &__title{
+        color: var(--color-accent);
+        font-size: 16px;
     }
 }

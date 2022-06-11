@@ -14,7 +14,12 @@ const Header = () => {
       <div className="header__container">
         <div className="upper-nav">
           <a href="/" className="upper-nav__logo">
-            <img src={img_icon} alt="letter K in fruit" height="80px" className="upper-nav__img" />
+            <img
+              src={img_icon}
+              alt="letter K in fruit"
+              height="80px"
+              className="upper-nav__img"
+            />
           </a>
         </div>
         <nav className="main-nav">
@@ -75,7 +80,7 @@ const Header = () => {
             ) : (
               ""
             )}
-            {/* {currentUser ? (
+            {currentUser ? (
               <li>
                 <a href="/restaurant" className="main-nav__item">
                   🍜 resto
@@ -83,7 +88,7 @@ const Header = () => {
               </li>
             ) : (
               ""
-            )} */}
+            )}
           </ul>
 
           <ThemeSelector />

@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useCallback } from "react";
 /** https://jquense.github.io/react-big-calendar/examples/index.html?path=/docs/about-big-calendar--page */
-import {
-  Calendar,
-  dateFnsLocalizer,
-  Views, 
-} from "react-big-calendar";
+/** Fragments let you group a list of children without adding extra nodes to the DOM */
+import { Calendar, dateFnsLocalizer, Views } from "react-big-calendar";
 import format from "date-fns/format";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
@@ -14,7 +11,6 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 
 import { db } from "../../utils/firebase";
-import { writeCalendarItem } from "../../utils/crud";
 import { query, onSnapshot, addDoc, collection } from "firebase/firestore";
 
 const locales = {
@@ -31,21 +27,37 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-const WeekMenu = ( {recipeCalender, handleDateSelect}) => {
+const WeekMenu = () => {
   const [data, setData] = useState([]);
-console.log(handleDateSelect);
-console.log(recipeCalender);
-  
+  const [myEvents, setEvents] = useState([]);
+
+  const handleSelectSlot = useCallback(
+    ({ start, end }) => {
+      const title = window.prompt("New Event name");
+      const event = {
+        title: title,
+        date: start,
+        end,
+      };
+      addDoc(collection(db, "WeekPlanner"), event);
+      if (title) {
+        setEvents((prev) => [...prev, { start, end, title }]);
+      }
+    },
+    [setEvents]
+  );
+
   useEffect(() => {
     // here mounts the data, get the data form firestore (query & onSnapshot)
     const q = query(collection(db, "WeekPlanner"));
     const unsub = onSnapshot(q, (snap) => {
       const array = snap.docs.map((doc) => {
+        console.log(doc);
         return {
-          id: doc.id,
-          title: doc.title,
-          date: new Date("2022-06-12T14:00:00-05:00"),
           ...doc.data(),
+          title: doc.title,
+          // date: date.toDate(),
+          // end: end.toDate(),
         };
       });
       console.log(array);
@@ -58,7 +70,7 @@ console.log(recipeCalender);
   }, []);
 
   return (
-    <>
+    <Fragment>
       <div className="weeklyMenu-container">
         <h2 className="recipeDetail__title">Weekly Menu</h2>
         <div>
@@ -71,15 +83,16 @@ console.log(recipeCalender);
         </div>
         <Calendar
           defaultView={Views.WEEK}
-          writeCalendarItem={writeCalendarItem}
           localizer={localizer}
-          events={data}
+          events={myEvents}
+          onSelectSlot={handleSelectSlot}
+          selectable
           startAccessor="start"
           endAccessor="end" //that returns the end date + 1 day for those events that end at midnight.
           className="calendar__container"
         />
       </div>
-    </>
+    </Fragment>
   );
 };
 

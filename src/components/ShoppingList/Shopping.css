@@ -3,25 +3,21 @@
   margin-top: 240px;
   background-image: url("../../Assets/backgr.jpg");
 }
-.shoppingList__background {
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2em;
-  width: 800px;
-  background-repeat: no-repeat;
+.shoppingList__title {
+  margin: 2em;
+  margin-bottom: 0;
+  padding-top: 50px;
+  font-size: 32px;
+  color: var(--color-accent);
+  text-shadow: 1px 1px white;
 }
 
 .shoppingList-container {
-  margin-left: 150px;
+  margin-left: 340px;
+  margin-top: 30px;
+  background: var(--color-bg-tint);
+  border-radius: 10px;
   box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
-}
-
-h4 {
-  margin-top: 290px;
-  color: var(--color-accent);
 }
 
 .shoppingList-header {
@@ -30,10 +26,8 @@ h4 {
 }
 
 .btn__sm {
-  box-shadow: rgb(6, 122, 70) 0px 0px 0px 1px;
-  background-color: rgb(210, 248, 149);
-  color: rgb(6, 122, 70);
-  border: 1px solid rgb(6, 122, 70);
+  box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
+  background-color: var(--color-accent-combo);
   padding: 4px;
   margin: 4px;
   margin-left: 10px;
@@ -43,6 +37,16 @@ h4 {
 
 .printer {
   background-color: transparent;
+}
+@media print {
+  .printer * {
+    visibility: none;
+  }
+  .printer .shoppingList-container {
+    visibility: visible;
+    position: absolute;
+    width: 100%;
+  }
 }
 
 .total {

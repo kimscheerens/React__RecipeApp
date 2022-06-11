@@ -54,6 +54,18 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
     setNewIngredients(values);
   };
 
+  // const handleAddIngredientField = (e) => {
+  //   e.preventDefault();
+  //   setNewIngredients([
+  //     ...newIngredients,
+  //     {
+  //       ingredient: "",
+  //       amount: "",
+  //       unit: "",
+  //     },
+  //   ]);
+  // };
+
   const handleAddIngredientField = (e) => {
     e.preventDefault();
     setNewIngredients([
