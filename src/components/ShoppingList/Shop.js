@@ -77,7 +77,7 @@ function Shop({ recipeShop }) {
               <tr key={i.id}>
                 <th>{index + 1}</th>
                 <th>
-                  <img src={i.url} style={{ width: "4rem" }} />
+                  <img src={i.url} className="cart-img" />
                 </th>
                 <td>{i.name}</td>
                 <td>{i.price} €</td>
@@ -85,6 +85,7 @@ function Shop({ recipeShop }) {
                   <button onClick={() => setCount(count -1)} className="btn__sm">
                     -
                   </button>
+                  <div>{i.quantity}</div>
                   {count}
                   <button
                     onClick={() => setCount(count +1)}

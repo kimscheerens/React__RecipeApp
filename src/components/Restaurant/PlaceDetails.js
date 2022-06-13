@@ -6,37 +6,39 @@ const PlaceDetails = ({ place, selected, refProp }) => {
 
   return (
     <div className="PlaceDetailCard">
-      <div
+      <img
         image={
           place.photo
             ? place.photo.images.large.url
             : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"
         }
         title={place.name}
+        className="PlaceDetailCard__img"
       />
       <div>
         <h5 className="PlaceDetailCard__title">{place.name}</h5>
-        <div display="flex" justifyContent="space-between">
+        <div className="PlaceDetailCard__info">
           <div>Prijs</div>
           <div>{place.price_level}</div>
         </div>
-        <div display="flex" justifyContent="space-between">
-          <div component="legend">Ranking</div>
+        <div >
+          <div component="legend" className="PlaceDetailCard__info">Ranking</div>
           <div gutterBottom variant="subtitle1">
             {place.ranking}
           </div>
         </div>
+        <div className="PlaceDetailCard__info">
         {place?.cuisine?.map(({ name }) => (
-          <div key={name} size="small" label={name} />
+          <div key={name} label={name} />
         ))}
         {place.address && (
-          <div gutterBottom variant="body2" color="textSecondary">
+          <div gutterBottom variant="body2" className="PlaceDetailCard__adress">
             {place.address}
           </div>
-        )}
+        )}</div>
         {place.phone && (
-          <div variant="body2" color="textSecondary">
-            {place.phone}
+          <div variant="body2" >
+          ☎️ {place.phone}
           </div>
         )}
       </div>

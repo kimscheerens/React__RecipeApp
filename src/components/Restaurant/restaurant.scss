@@ -11,9 +11,9 @@
     }
 
     &__container{
-       width: 100%;
        display: flex;
-       justify-content: row;
+        width: 800px;
+       
     }
 
     &__select_box{
@@ -32,8 +32,8 @@
 }
 
 .google-map{
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 400px;
     margin: 30px;
     box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
 }
@@ -54,5 +54,21 @@
     &__title{
         color: var(--color-accent);
         font-size: 16px;
+    }
+
+    &__img{
+        width: 300px;
+        height: 150px;
+    }
+
+    &__info{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__adress{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 }

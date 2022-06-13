@@ -62,8 +62,7 @@ function RecipeDetail() {
   return (
     <section className="recipeDetail">
       <h2 className="recipeDetail__title"> Detail recipe:</h2>
-      <div>
-        <>
+  
           <div className="recipeDetail__container">
             <div key={recipeDetail.recipeid}> </div>
             <h3 className="recipeDetail__subtitle">{recipeDetail.title}</h3>
@@ -123,7 +122,7 @@ function RecipeDetail() {
               </aside>
               <div className="recipeDetail-container">
                 <li>
-                  <h4 id="ingredients">INGREDIENTS</h4>
+                  <h4 className="recipeDetail__ingredients" id="ingredients">INGREDIENTS</h4>
                   <button
                     className="button-shop"
                     recipeShop={recipeDetail.ingredients}
@@ -140,7 +139,7 @@ function RecipeDetail() {
                   </div>
                 </li>
                 <li className="recipeDetail-container__list-two">
-                  <h4 id="preparation">PREPARATION</h4>
+                  <h4 id="preparation" className="recipeDetail__preparation">PREPARATION</h4>
                   <h5>Steps</h5>
                   <ol>
                     {recipeDetail.steps.map((step, i) => (
@@ -151,9 +150,7 @@ function RecipeDetail() {
               </div>
             </div>
           </div>
-        </>
-      </div>
-    </section>
+   </section>
   );
 }
 

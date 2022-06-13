@@ -95,6 +95,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
           x
         </button>
         <div key={recipeDetailid.recipeId}> </div>
+        <h2>Update Recipe:</h2>
         <h3 className="modal__subtitle">title: </h3>
         <input
           className="modal__input"

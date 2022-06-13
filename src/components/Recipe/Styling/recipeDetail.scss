@@ -15,6 +15,7 @@
   }
 
   &__title {
+    margin-top: 350px;
     margin: 2em;
     margin-bottom: 0;
     font-size: 32px;
@@ -29,7 +30,7 @@
   }
 
   &__desc {
-    margin-left: 20px;
+   margin-right: 650px;
   }
 
   &__img {
@@ -52,6 +53,7 @@
     width: 55px;
     height: 55px;
     margin-left: 10px;
+    margin-bottom: 10px;
     box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
     background-color: var(--color-accent-combo);  
   }
@@ -68,11 +70,25 @@
   }
 
   &__aside {
+    margin-top: 15px;
     display: flex;
     justify-content: space-around;
     color: black;
     font-size: 16px;
   
+  }
+
+  &__subtitle{
+   display: flex;
+   margin-left: 120px;
+  }
+
+  &__ingredients{
+    margin-top: 320px;
+  }
+
+  &__preparation{
+    margin-top: 320px;
   }
 }
 
@@ -138,6 +154,7 @@
   &__input{
     border-radius: 3px;
     padding: 8px;
+    width: 100%;
     background-color: var(--color-basic-bg);
     color: var(--color-accent);
     margin-left: 5px;

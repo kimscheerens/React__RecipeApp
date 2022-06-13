@@ -10,9 +10,8 @@
   text-shadow: 1px 1px white;
 }
 .restaurant__container {
-  width: 100%;
   display: flex;
-  justify-content: row;
+  width: 800px;
 }
 .restaurant__select_box {
   display: flex;
@@ -28,8 +27,8 @@
 }
 
 .google-map {
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 400px;
   margin: 30px;
   box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
 }
@@ -50,4 +49,17 @@
 .PlaceDetailCard__title {
   color: var(--color-accent);
   font-size: 16px;
+}
+.PlaceDetailCard__img {
+  width: 300px;
+  height: 150px;
+}
+.PlaceDetailCard__info {
+  display: flex;
+  justify-content: space-around;
+}
+.PlaceDetailCard__adress {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }/*# sourceMappingURL=restaurant.css.map */

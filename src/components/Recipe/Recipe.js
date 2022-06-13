@@ -146,12 +146,12 @@ function Recipe() {
     });
   };
 
-  const [searchTerm, setSearchTerm] = useState("");
+  // const [searchTerm, setSearchTerm] = useState("");
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log("hello");
-  };
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   console.log("hello");
+  // };
 
   return (
     <>
@@ -163,7 +163,7 @@ function Recipe() {
         >
           Add recipe
         </button>
-        <div onSubmit={submitHandler}>
+        {/* <div onSubmit={submitHandler}>
           <div className="search">
             <input
               className="search__input"
@@ -174,7 +174,7 @@ function Recipe() {
             />
             <FaSearch className="search__icon"></FaSearch>
           </div>
-        </div>
+        </div> */}
 
         <div className="recipe-collection">
           <ul className="recipe__list">

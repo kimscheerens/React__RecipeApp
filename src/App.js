@@ -45,7 +45,7 @@ function App() {
           <Favorites path="/favorites" />
           <WeekMenu path="/RecipeList/WeekMenu" />
           <Shop path="/shop" />
-          <Restaurant path="/restaurant" />
+          {/* <Restaurant path="/restaurant" /> */}
           <CreateUser path="/CreateUser" />
           <Login path="/Login" />
           <Contact path="/contact" />

@@ -9,6 +9,7 @@ import ThemeSelector from "./ThemeSelector";
 const Header = () => {
   const currentUser = useAuth();
 
+ 
   return (
     <header className="header">
       <div className="header__container">
@@ -80,7 +81,7 @@ const Header = () => {
             ) : (
               ""
             )}
-            {currentUser ? (
+            {/* {currentUser ? (
               <li>
                 <a href="/restaurant" className="main-nav__item">
                   🍜 resto
@@ -88,10 +89,11 @@ const Header = () => {
               </li>
             ) : (
               ""
-            )}
+            )} */}
           </ul>
 
           <ThemeSelector />
+
           <li className="nav-item dropdown">
             <a href="/" className="main-nav__item" component={CreateUser}>
               <img

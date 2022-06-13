@@ -1,12 +1,13 @@
 import React, { useRef, useState } from "react";
 import { useAuth, signup } from "../../utils/useAuth";
-import { Link } from "@gatsbyjs/reach-router";
+import { Link, useNavigate } from "@gatsbyjs/reach-router";
 
 export default function CreateUser() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordconfirmRef = useRef();
   const currentUser = useAuth();
+  const nav = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -20,6 +21,7 @@ export default function CreateUser() {
         passwordRef.current.value,
         passwordconfirmRef.current.value
       );
+      nav("/");
     } catch {
       setError("Failed to create an account");
     }
