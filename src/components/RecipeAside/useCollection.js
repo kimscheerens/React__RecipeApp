@@ -15,7 +15,7 @@ const useCollection = (id, filterObject = { category: ["lunch"] }) => {
 
   useEffect(() => {
     let unsub;
-    let ref = collection(db, id);
+    let ref = collection(db, "recept");
     console.log(ref);
     const filters = Object.entries(filterObject);
     if (filters.lenght === 0) {

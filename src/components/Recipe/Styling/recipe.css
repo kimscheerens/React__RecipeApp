@@ -84,6 +84,10 @@ label {
   text-align: start;
   width: 100%;
 }
+.form-group__input-ingredient {
+  width: auto;
+  margin: 5px;
+}
 
 .form-group:last-of-type {
   margin-bottom: 0;
@@ -347,6 +351,12 @@ h4 {
   border-radius: 5px;
   z-index: 3;
   box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.2);
+}
+.cont_text_ingredients__list {
+  display: flex;
+}
+.cont_text_ingredients__list-item {
+  margin: 5px;
 }
 
 /* ---------------- Css Tabs -------- */

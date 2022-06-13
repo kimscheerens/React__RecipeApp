@@ -75,6 +75,12 @@
 .recipeDetail__ingredients {
   margin-top: 320px;
 }
+.recipeDetail__ingredients__list {
+  display: flex;
+}
+.recipeDetail__ingredients__list-item {
+  margin: 5px;
+}
 .recipeDetail__preparation {
   margin-top: 320px;
 }

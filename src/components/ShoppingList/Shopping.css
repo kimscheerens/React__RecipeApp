@@ -70,4 +70,38 @@
 }
 .total__item {
   margin-right: 200px;
+}
+
+.ShoppingModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  text-align: left;
+}
+.ShoppingModal__container {
+  display: flex;
+  align-items: stretch;
+}
+.ShoppingModal__input {
+  margin: 5px;
+  width: auto;
+}
+
+.addToCart {
+  background-color: rgb(255, 239, 162);
+  color: var(--color-accent);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 650px;
+  overflow: auto;
+  z-index: 20;
+  max-height: calc(100vh - 4rem);
 }/*# sourceMappingURL=Shopping.css.map */

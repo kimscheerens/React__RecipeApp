@@ -85,6 +85,7 @@ export const writeFavoItem = async (recipe) => {
     value: 0,
   };
   await addDoc(favoRef, payload);
+
   console.log(favoRef);
   console.log(payload);
 };
@@ -138,6 +139,24 @@ export const shoppingCollectionRef = collection(db, "shoppingCart");
 // console.log(shoppingCollectionRef);
 
 // C create item from ShoppingCart collection
+export const writeShoppingItem = async (recipeDetail) => {
+  console.log(recipeDetail);
+  const payload = {
+    id: "",
+    image: `${recipeDetail.imageUrl}`,
+    title: `${recipeDetail.title}`,
+    // ingredients: `$[{recipeDetail.ingredients}]`,
+    ingredientsName: `${recipeDetail.ingredientsName}`,
+    // amount: `${recipeDetail.quantity}`,
+    // unit: `${recipeDetail.unit}`,
+    // price: `${recipeDetail.price}`,
+    cart: "false",
+  };
+  await addDoc(shoppingCollectionRef, payload);
+  console.log(shoppingCollectionRef);
+  console.log(payload);
+};
+
 // R read item from ShoppingCart collection
 // U update item from ShoppingCart collection
 
@@ -149,7 +168,9 @@ export const shoppingCollectionRef = collection(db, "shoppingCart");
 // console.log(updateCart);
 
 // D delete item from ShoppingCart collection
-export const deleteShopping = async (id) => {
-  const docRef = doc(db, "shoppingCart", id);
+export const deleteShopping = async (shoppingId) => {
+  const docRef = doc(db, "shoppingCart", shoppingId);
   await deleteDoc(docRef);
+  console.log(docRef);
+  console.log(deleteShopping);
 };

@@ -14,7 +14,7 @@ function Home() {
         <div className="app__recipes"></div>
       </main>
       <RecipeList />
-      <Favorites />
+      <Favorites/>
     </>
   );
 }

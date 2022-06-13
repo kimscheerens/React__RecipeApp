@@ -3,23 +3,25 @@ import { db } from "../../utils/firebase";
 import { updateCart, deleteShopping } from "../../utils/crud";
 import { collection, increment, onSnapshot, updateDoc } from "firebase/firestore";
 import { useCounter } from "../../state/useCounter";
+import ShoppingModal from "./ShoppingModal";
 
 //crud for the shopping
 
 function Shop({ recipeShop }) {
+  const [openShopModal, setOpenShopModal] = useState(false);
   console.log(recipeShop);
   //  const [count, setCount] = useState(`${i.quantity}`);
-   const [count, setCount] = useState(null);
+  const [count, setCount] = useState(null);
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState({
     id: "",
-    name: "",
+    ingredient: "",
     price: "",
+    unit: "",
     url: "",
     cart: false,
-    quantity: "",
+    amount: "",
   });
- 
 
   // to get all the data from firestore
   const shoppingCollectionRef = collection(db, "shoppingCart");
@@ -38,14 +40,6 @@ function Shop({ recipeShop }) {
     });
   }, []);
 
-  function addtocart(item) {
-    products.map((i) => {
-      if (i.id == item.id) {
-        i.cart = true;
-      }
-    });
-    db.collection("shoppingCart").doc(`${item.id}`).set(item, { merge: true });
-  }
 
   function total() {
     let x = 0;
@@ -55,8 +49,6 @@ function Shop({ recipeShop }) {
     return x;
   }
 
-
-
   return (
     <>
       <section className="shoppingList">
@@ -65,30 +57,43 @@ function Shop({ recipeShop }) {
           <thead className="shoppingList-header">
             <tr>
               <th>#</th>
-              <th>Product</th>
+              <th>Recipe Title</th>
               <th>Product Name</th>
               <th>Price</th>
               <th>Quantity</th>
             </tr>
           </thead>
-
+          <button
+            className="btn__sm"
+            onClick={() => deleteShopping(cart.id)}
+            shoppingId={cart.id}
+          >
+            Empty Cart
+          </button>
           <tbody>
             {cart.map((i, index) => (
               <tr key={i.id}>
                 <th>{index + 1}</th>
                 <th>
+                  <td>{i.title}</td>
                   <img src={i.url} className="cart-img" />
+                  <img src={i.image} className="cart-img" />
                 </th>
-                <td>{i.name}</td>
+                <td>
+                  {i.name}
+                </td>
                 <td>{i.price} €</td>
                 <td>
-                  <button onClick={() => setCount(count -1)} className="btn__sm">
+                  <button
+                    onClick={() => setCount(count - 1)}
+                    className="btn__sm"
+                  >
                     -
                   </button>
                   <div>{i.quantity}</div>
                   {count}
                   <button
-                    onClick={() => setCount(count +1)}
+                    onClick={() => setCount(count + 1)}
                     className="btn__sm"
                     size="sm"
                   >
@@ -97,6 +102,7 @@ function Shop({ recipeShop }) {
                   <button
                     className="btn__sm"
                     onClick={() => deleteShopping(cart.id)}
+                    shoppingId={cart.id}
                   >
                     🗑️
                   </button>
@@ -104,7 +110,14 @@ function Shop({ recipeShop }) {
               </tr>
             ))}
           </tbody>
-          <button onClick={() => addtocart}>add to cart</button>
+          <button
+            onClick={() => {
+              setOpenShopModal(true);
+            }}
+          >
+            add to cart
+          </button>
+          {openShopModal && <ShoppingModal closeModal={setOpenShopModal} />}
         </table>
 
         <div className="total">

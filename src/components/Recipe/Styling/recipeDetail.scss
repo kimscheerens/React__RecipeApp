@@ -85,6 +85,14 @@
 
   &__ingredients{
     margin-top: 320px;
+
+    &__list{
+      display: flex;
+    }
+
+    &__list-item{
+      margin: 5px;
+    }
   }
 
   &__preparation{

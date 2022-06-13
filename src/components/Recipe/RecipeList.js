@@ -40,7 +40,7 @@ const RecipeList = () => {
     <section className="allreceps">
       <div className="top-recep__container">
         <div className="top-recep__list">
-          <article className="recep-item">
+          <article className="recep-item" >
             <img src={img_breakfast} alt="test" className="recep-item__img" />
             <h3 className="recep-item__title">
               <button

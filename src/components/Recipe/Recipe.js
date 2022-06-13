@@ -20,7 +20,6 @@ function Recipe() {
     title: "",
     imageUrl: "",
     desc: "",
-    // ingredients: { ingredient: "", amount: "", unit: "" },
     ingredients: [{ ingredient: "", amount: "", unit: "" }],
     steps: [],
     category: "",
@@ -89,8 +88,7 @@ function Recipe() {
       title: "",
       imageUrl: "",
       desc: "",
-      ingredients: [{ ingredient: "", amount: "", unit: "" }],
-      // ingredients: { ingredient: "", amount: "", unit: "" },
+      ingredients: { ingredient: "", amount: "", unit: "" },
       steps: [],
       category: "",
       allergies: "",
@@ -104,7 +102,7 @@ function Recipe() {
   const handleIngredient = (e, i) => {
     const ingredientsClone = [...form.ingredients];
 
-    ingredientsClone[i] = e.target.value;
+    ingredientsClone[i][e.target.name] = e.target.value;
 
     setForm({
       ...form,
@@ -127,7 +125,6 @@ function Recipe() {
   const handleIngredientCount = () => {
     setForm({
       ...form,
-      // ingredients: [...form.ingredients, ""],
       ingredients: [
         ...form.ingredients,
         {
@@ -146,13 +143,6 @@ function Recipe() {
     });
   };
 
-  // const [searchTerm, setSearchTerm] = useState("");
-
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   console.log("hello");
-  // };
-
   return (
     <>
       <div className="recipe">
@@ -163,19 +153,6 @@ function Recipe() {
         >
           Add recipe
         </button>
-        {/* <div onSubmit={submitHandler}>
-          <div className="search">
-            <input
-              className="search__input"
-              onChange={(e) => setSearchTerm(e.target.value)}
-              type="text"
-              value={searchTerm}
-              placeholder="search recipe..."
-            />
-            <FaSearch className="search__icon"></FaSearch>
-          </div>
-        </div> */}
-
         <div className="recipe-collection">
           <ul className="recipe__list">
             {recipes.map((recipe, i) => (
@@ -258,7 +235,11 @@ function Recipe() {
                             <h4>INGREDIENTS</h4>
                             <div className="cont_text_ingredients">
                               {recipe.ingredients.map((ingredient, i) => (
-                                <li key={i}>{ingredient}</li>
+                                <ul className="cont_text_ingredients__list" key={i}>
+                                  <li className="cont_text_ingredients__list-item">{ingredient.ingredient}</li>
+                                  <li className="cont_text_ingredients__list-item">{ingredient.amount}</li>
+                                  <li className="cont_text_ingredients__list-item">{ingredient.unit}</li>
+                                </ul>
                               ))}
                             </div>
                           </li>
@@ -409,44 +390,35 @@ function Recipe() {
               <div className="form-group">
                 <label>Ingredients:</label>
                 {form.ingredients.map((ingredient, i) => (
-                  <input
-                    className="form-group__input"
-                    type="text"
-                    placeholder="enter one ingrediënt..."
-                    key={i}
-                    value={ingredient}
-                    onChange={(e) => handleIngredient(e, i)}
-                  />
-                  /* {form.ingredients.map((ingredient, i) => (
                   <div key={i}>
                     <input
-                      className="form-group__input"
+                      className="form-group__input-ingredient"
                       type="text"
                       name="ingredient"
                       placeholder="enter one ingrediënt..."
                       key={i}
-                      value={ingredient}
+                      value={ingredient.ingredient}
                       onChange={(e) => handleIngredient(e, i)}
                     />
                     <input
-                      className="form-group__input"
+                      className="form-group__input-ingredient"
                       type="text"
                       name="amount"
                       placeholder="amount..."
                       key={i}
-                      // value={amount}
+                      value={ingredient.amount}
                       onChange={(e) => handleIngredient(e, i)}
                     />
                     <input
-                      className="form-group__input"
+                      className="form-group__input-ingredient"
                       type="text"
                       name="unit"
                       placeholder="unit..."
                       key={i}
-                      // value={unit}
+                      value={ingredient.unit}
                       onChange={(e) => handleIngredient(e, i)}
                     />
-                  </div> */
+                  </div>
                 ))}
                 <button type="button" onClick={handleIngredientCount}>
                   Add ingredient
