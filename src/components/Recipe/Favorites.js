@@ -34,27 +34,20 @@ const Favorites = () => {
         <div className="top-favo-recep__container">
           <h2 className="top-recep__title">Most favorite recipes</h2>
           <div className="top-recep__list">
-            {favorite.map((favorit) => (
-              <article className="Favo-recipe-item">
+            {favorite.map(favorit => (
+              <article className="Favo-recipe-item" key={favorit.id}>
                 <div className="Favo-recipe-item__container" id={favorit.id}>
-                  <img
-                    src={favorit.image}
-                    alt="test"
-                    className="Favo-recipe-item__img"
-                  />
+                  <img src={favorit.image} alt="test" className="Favo-recipe-item__img" />
                   {currentUser ? (
                     <FaHeart
                       className="Favo-recipe-item__heart"
-                      onMouseOver={({ target }) =>
-                        (target.style.color = "white")
-                      }
-                      onMouseOut={({ target }) =>
-                        (target.style.color = "black")
-                      }
+                      onMouseOver={({ target }) => (target.style.color = "white")}
+                      onMouseOut={({ target }) => (target.style.color = "black")}
                       onClick={() => {
                         deleteFavorite(favorit.id);
                       }}
-                    /> 
+                      disabled={favorit.id}
+                    />
                   ) : (
                     ""
                   )}
@@ -62,14 +55,7 @@ const Favorites = () => {
                 <div className="Favo-item-overlay"></div>
                 <div className="Favo-recipe__item">
                   <h3 className="Favo-recipe__title">{favorit.title}</h3>
-                  {currentUser ? (
-                    <RecipeRating
-                      favoritId={favorit.id}
-                      FavoRating={favorit.value}
-                    />
-                  ) : (
-                    ""
-                  )}
+                  {currentUser ? <RecipeRating favoritId={favorit.id} FavoRating={favorit.value} /> : ""}
                 </div>
               </article>
             ))}

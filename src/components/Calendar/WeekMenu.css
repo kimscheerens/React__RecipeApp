@@ -9,6 +9,19 @@
   color: var(--color-accent);
 }
 
+.rbc-event {
+  background-color: var(--color-accent-combo);
+}
+
+.rbc-event-label {
+  font-size: 0;
+}
+
+.rbc-event-content {
+  color: var(--color-accent);
+  background-color: var(--color-accent-combo);
+}
+
 .inputCalendar {
   display: flex;
   flex-direction: column;

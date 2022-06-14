@@ -2,11 +2,11 @@ import { collection, doc, onSnapshot, query, where } from "firebase/firestore";
 import { db } from "../../utils/firebase";
 import React, { useEffect, useState } from "react";
 
-const useCollection = (id, filterObject = { category: ["lunch"] }) => {
+const useCollection = (c, filterObject = { category: ["dinner"] }) => {
   const [data, setData] = useState([]);
 
   console.log(filterObject);
-  console.log(id);
+  console.log(c);
   /**
    * {filterObject
    * category:["lunch"]
@@ -18,10 +18,10 @@ const useCollection = (id, filterObject = { category: ["lunch"] }) => {
     let ref = collection(db, "recept");
     console.log(ref);
     const filters = Object.entries(filterObject);
-    if (filters.lenght === 0) {
-      unsub = onSnapshot(ref, (snapshot) => {
+    if (filters.length === 0) {
+      unsub = onSnapshot(ref, snapshot => {
         let results = [];
-        snapshot.docs.forEach((doc) => {
+        snapshot.docs.forEach(doc => {
           results.push({ ...doc.data(), id: doc.id });
         });
         setData(results);
@@ -32,18 +32,18 @@ const useCollection = (id, filterObject = { category: ["lunch"] }) => {
         query(ref, where(field, "in", value))
       );
       // let searchQuery = query(ref, ...whereStatements);
-      unsub = onSnapshot(...queries, (snapshot) => {
+      unsub = onSnapshot(...queries, snapshot => {
         let results = [];
         // dit zou je al moeten zien...
         console.log(snapshot);
-        snapshot.docs.forEach((doc) => {
+        snapshot.docs.forEach(doc => {
           results.push({ ...doc.data(), id: doc.id });
         });
         setData(results);
       });
     }
     return () => unsub();
-  }, [id, JSON.stringify(filterObject)]);
+  }, [c, JSON.stringify(filterObject)]);
   console.log(data);
 
   if (!data) return null;

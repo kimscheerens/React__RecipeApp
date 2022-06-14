@@ -40,14 +40,10 @@ const RecipeList = () => {
     <section className="allreceps">
       <div className="top-recep__container">
         <div className="top-recep__list">
-          <article className="recep-item" >
+          <article className="recep-item">
             <img src={img_breakfast} alt="test" className="recep-item__img" />
             <h3 className="recep-item__title">
-              <button
-                value="Breakfast"
-                onClick={handleClick}
-                className="recep-item__link"
-              >
+              <button value="Breakfast" onClick={handleClick} className="recep-item__link">
                 Breakfast
               </button>
             </h3>
@@ -55,11 +51,7 @@ const RecipeList = () => {
           <article className="recep-item">
             <img src={img_test2} alt="test" className="recep-item__img" />
             <h3 className="recep-item__title">
-              <button
-                value="lunch"
-                onClick={handleClick}
-                className="recep-item__link"
-              >
+              <button value="lunch" onClick={handleClick} className="recep-item__link">
                 lunch
               </button>
             </h3>
@@ -67,11 +59,7 @@ const RecipeList = () => {
           <article className="recep-item">
             <img src={img_dinner} alt="test" className="recep-item__img" />
             <h3 className="recep-item__title">
-              <button
-                value="dinner"
-                onClick={handleClick}
-                className="recep-item__link"
-              >
+              <button value="dinner" onClick={handleClick} className="recep-item__link">
                 Dinner
               </button>
             </h3>
@@ -79,30 +67,20 @@ const RecipeList = () => {
           <article className="recep-item">
             <img src={img_test} alt="test" className="recep-item__img" />
             <h3 className="recep-item__title">
-              <button
-                value="snacks"
-                onClick={handleClick}
-                className="recep-item__link"
-              >
+              <button value="snacks" onClick={handleClick} className="recep-item__link">
                 Snacks
               </button>
             </h3>
           </article>
         </div>
         <ul className="top-recep__list">
-          {receps.map((recep) => (
+          {receps.map(recep => (
             <div className="recep-item" key={recep.data.id}>
               <h3 className="recep-item__title">{recep.data.title}</h3>
-              <img
-                className="recep-item__label-img"
-                src={recep.data.imageUrl}
-                alt="image of the recep"
-              ></img>
+              <img className="recep-item__label-img" src={recep.data.imageUrl} alt="image of the recep"></img>
               <div className="label-allergy">
                 allergies:
-                <span className="label-allergy__item">
-                  {recep.data.allergies}
-                </span>
+                <span className="label-allergy__item">{recep.data.allergies}</span>
               </div>
             </div>
           ))}

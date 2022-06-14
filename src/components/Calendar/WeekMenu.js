@@ -11,7 +11,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 
 import { db } from "../../utils/firebase";
-import { query, onSnapshot, addDoc, collection } from "firebase/firestore";
+import { query, onSnapshot, addDoc, collection, Timestamp } from "firebase/firestore";
 
 const locales = {
   "nl-BE": require("date-fns/locale/nl-BE"),
@@ -27,46 +27,41 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
+/** firestore configuration to get date: https://firebase.google.com/docs/reference/js/v8/firebase.firestore.Timestamp */
 const WeekMenu = () => {
-  const [data, setData] = useState([]);
   const [myEvents, setEvents] = useState([]);
 
   const handleSelectSlot = useCallback(
     ({ start, end }) => {
-      const title = window.prompt("New Event name");
+      const desc = window.prompt("New Event name");
       const event = {
-        title: title,
-        date: start,
-        end,
+        desc,
+        start: Timestamp.fromDate(start),
+        end: Timestamp.fromDate(end),
       };
       addDoc(collection(db, "WeekPlanner"), event);
-      if (title) {
-        setEvents((prev) => [...prev, { start, end, title }]);
-      }
+
+      const newLocalEvent = { desc, start, end };
+      setEvents(prev => [...prev, newLocalEvent]);
     },
     [setEvents]
   );
 
+  /** to see the date on the calander it must been convert to a date toDate() */
   useEffect(() => {
-    // here mounts the data, get the data form firestore (query & onSnapshot)
     const q = query(collection(db, "WeekPlanner"));
-    const unsub = onSnapshot(q, (snap) => {
-      const array = snap.docs.map((doc) => {
-        console.log(doc);
+    const unsub = onSnapshot(q, snap => {
+      const array = snap.docs.map(doc => {
+        const dbObj = doc.data();
         return {
-          ...doc.data(),
-          title: doc.title,
-          // date: date.toDate(),
-          // end: end.toDate(),
+          title: dbObj.desc,
+          start: dbObj.start.toDate(),
+          end: dbObj.end.toDate(),
         };
       });
-      console.log(array);
-      setData([...array]);
+      setEvents(array);
     });
-    // here unmounts the data
-    return () => {
-      unsub();
-    };
+    return () => unsub();
   }, []);
 
   return (
@@ -75,11 +70,7 @@ const WeekMenu = () => {
         <h2 className="recipeDetail__title">Weekly Menu</h2>
         <div>
           Today:
-          {today.getDate() +
-            "-" +
-            (today.getMonth() + 1) +
-            "-" +
-            today.getFullYear()}
+          {today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear()}
         </div>
         <Calendar
           defaultView={Views.WEEK}

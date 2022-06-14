@@ -53,9 +53,15 @@
   background-color: var(--color-accent-combo);
 }
 .recipeDetail__btn-date {
-  width: 120px;
+  width: 100px;
   height: 55px;
   margin-left: 10px;
+  padding: 5px;
+}
+.recipeDetail__btn-detail {
+  width: 80px;
+  padding: 5px;
+  margin-top: 10px;
 }
 .recipeDetail__btn-icon {
   width: 20px;
@@ -166,7 +172,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 105;
   text-align: left;
 }
 

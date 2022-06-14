@@ -13,7 +13,7 @@ function Overview() {
       <Filter setFilters={setFilters} selectedFilters={filters} />
       <section>
       {recipes.map((recipe, i) => (
-              <div recipe={recipe} key={recipe.id} />
+        <div recipe={recipe} key={recipe.id} />       
 
             ))}
 

@@ -381,23 +381,25 @@ h4{
 
 .cont_text_ingredients {
   position: absolute;
-  width: 0px;
+  // width: 0px;
   top: 0px;
   margin-top: 60px;
-  margin-left: 60px;
-  height: 400px;
+  // margin-left: 60px;
   float: left;
   border-radius: 5px;
   z-index: 3;
   box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.2);
+  height: auto;
 
   &__list{
-    display: flex;    
+    display: flex;  
+    width: 270px;  
    
   }
 
   &__list-item{
-   margin: 5px;
+   margin: 0 5px 0 5px;
+   width: 100%;
   
   }
 }

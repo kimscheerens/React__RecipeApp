@@ -39,11 +39,7 @@ export default function CreateUser() {
               {error && <span className="error">{error}</span>}
               <input ref={emailRef} placeholder="Email" />
               <input ref={passwordRef} type="password" placeholder="Password" />
-              <input
-                ref={passwordconfirmRef}
-                type="password"
-                placeholder="confirm your Password"
-              />
+              <input ref={passwordconfirmRef} type="password" placeholder="confirm your Password" />
               <button disabled={loading || currentUser} onClick={handleSignup}>
                 Signup
               </button>

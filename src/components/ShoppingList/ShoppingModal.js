@@ -8,28 +8,18 @@ const ShoppingModal = ({ closeModal }) => {
       <div className="addToCart">
         <button onClick={() => closeModal(false)}>x</button>
         <div className="ShoppingModal__container">
-          <input
-            className="ShoppingModal__input"
-            type="text"
-            placeholder="Name product"
-          />
-          <input
-            className="ShoppingModal__input"
-            type="numbre"
-            placeholder="quantity"
-          />
-          <input
-            className="ShoppingModal__input"
-            type="text"
-            placeholder="unit"
-          />
-          <input
-            className="ShoppingModal__input"
-            type="numbre"
-            placeholder="price"
-          />
+          <input className="ShoppingModal__input" type="text" placeholder="Name product" />
+          <input className="ShoppingModal__input" type="numbre" placeholder="quantity" />
+          <input className="ShoppingModal__input" type="text" placeholder="unit" />
+          <input className="ShoppingModal__input" type="numbre" placeholder="price" />
         </div>
-        <button onClick={() => { writeShoppingItem()}}>add to chart</button>
+        <button
+          onClick={() => {
+            writeShoppingItem();
+          }}
+        >
+          add to chart
+        </button>
       </div>
     </div>
   );

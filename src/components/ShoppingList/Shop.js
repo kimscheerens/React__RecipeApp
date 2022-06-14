@@ -63,11 +63,7 @@ function Shop({ recipeShop }) {
               <th>Quantity</th>
             </tr>
           </thead>
-          <button
-            className="btn__sm"
-            onClick={() => deleteShopping(cart.id)}
-            shoppingId={cart.id}
-          >
+          <button className="btn__sm" onClick={() => deleteShopping(cart.id)} shoppingId={cart.id}>
             Empty Cart
           </button>
           <tbody>
@@ -79,31 +75,18 @@ function Shop({ recipeShop }) {
                   <img src={i.url} className="cart-img" />
                   <img src={i.image} className="cart-img" />
                 </th>
-                <td>
-                  {i.name}
-                </td>
+                <td>{i.name}</td>
                 <td>{i.price} €</td>
                 <td>
-                  <button
-                    onClick={() => setCount(count - 1)}
-                    className="btn__sm"
-                  >
+                  <button onClick={() => setCount(count - 1)} className="btn__sm">
                     -
                   </button>
                   <div>{i.quantity}</div>
                   {count}
-                  <button
-                    onClick={() => setCount(count + 1)}
-                    className="btn__sm"
-                    size="sm"
-                  >
+                  <button onClick={() => setCount(count + 1)} className="btn__sm" size="sm">
                     +
                   </button>
-                  <button
-                    className="btn__sm"
-                    onClick={() => deleteShopping(cart.id)}
-                    shoppingId={cart.id}
-                  >
+                  <button className="btn__sm" onClick={() => deleteShopping(cart.id)} shoppingId={cart.id}>
                     🗑️
                   </button>
                 </td>

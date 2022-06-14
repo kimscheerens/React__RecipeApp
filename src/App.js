@@ -5,6 +5,7 @@ import "../src/components/Header/header.css";
 import "../src/components/Recipe/Styling/recipe.css";
 import "../src/components/Recipe/Styling/favorites.css";
 import "../src/components/Recipe/Styling/recipeDetail.css";
+import "../src/components/Recipe/Styling/recipeExtra.css";
 import "../src/components/RecipeAside/Styling/RecipeAside.css";
 import "../src/components/ShoppingList/Shopping.css";
 import "../src/components/User/user.css";
@@ -45,7 +46,7 @@ function App() {
           <Favorites path="/favorites" />
           <WeekMenu path="/RecipeList/WeekMenu" />
           <Shop path="/shop" />
-          {/* <Restaurant path="/restaurant" /> */}
+          <Restaurant path="/restaurant" />
           <CreateUser path="/CreateUser" />
           <Login path="/Login" />
           <Contact path="/contact" />

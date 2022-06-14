@@ -15,12 +15,7 @@ const RestaurantList = ({ places, type, setType, childClicked }) => {
   return (
     <>
       <div className="form-group">
-        <select
-          className="restaurant__select_box"
-          id="type"
-          value={type}
-          onChange={(e) => setType(e.target.value)}
-        >
+        <select className="restaurant__select_box" id="type" value={type} onChange={e => setType(e.target.value)}>
           <option className="select_box__text" value="restaurants">
             Restaurants
           </option>
@@ -32,11 +27,7 @@ const RestaurantList = ({ places, type, setType, childClicked }) => {
       <div>
         {places?.map((place, i) => (
           <div ref={elRefs[i]} key={i}>
-            <PlaceDetails
-              selected={Number(childClicked) === i}
-              refProp={elRefs[i]}
-              place={place}
-            />
+            <PlaceDetails selected={Number(childClicked) === i} refProp={elRefs[i]} place={place} />
           </div>
         ))}
       </div>

@@ -56,43 +56,22 @@ export const Filter = ({ setFilters, selectedFilters }) => {
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input
-              type="checkbox"
-              category="lunch"
-              value="lunch"
-              name="category"
-              checked={selectedFilters.category?.includes("lunch")}
-              onChange={onChange}
-            ></input>
+            <input type="checkbox" category="lunch" value="lunch" name="category" checked={selectedFilters.category?.includes("lunch")} onChange={onChange}></input>
             <span>lunch </span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input
-              type="checkbox"
-              category="dinner"
-              value="dinner"
-              name="category"
-              checked={selectedFilters.category?.includes("dinner")}
-              onChange={onChange}
-            ></input>
+            <input type="checkbox" category="dinner" value="dinner" name="category" checked={selectedFilters.category?.includes("dinner")} onChange={onChange}></input>
             <span>dinner </span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input
-              type="checkbox"
-              category="snacks"
-              value="snacks"
-              name="category"
-              checked={selectedFilters.category?.includes("snacks")}
-              onChange={onChange}
-            ></input>
+            <input type="checkbox" category="snacks" value="snacks" name="category" checked={selectedFilters.category?.includes("snacks")} onChange={onChange}></input>
             <span>snacks </span>
           </li>
         </ul>
       </div>
-      {/* <div className="filter-section">
+      <div className="filter-section">
         <h3 className="filter-section__title">Prep Time: </h3>
         <ul className="filter-list">
           <li className="filter-list__item">
@@ -122,50 +101,22 @@ export const Filter = ({ setFilters, selectedFilters }) => {
         <ul className="filter-list">
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input
-              type="checkbox"
-              label="allergies"
-              value="allergies"
-              name="nuts"
-              checked={selectedFilters.label?.includes("nuts")}
-              onChange={onChange}
-            ></input>
+            <input type="checkbox" label="allergies" value="allergies" name="nuts" checked={selectedFilters.label?.includes("nuts")} onChange={onChange}></input>
             <span>Nuts</span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input
-              type="checkbox"
-              label="allergies"
-              value="allergies"
-              name="milk"
-              checked={selectedFilters.label?.includes("milk")}
-              onChange={onChange}
-            ></input>
+            <input type="checkbox" label="allergies" value="allergies" name="milk" checked={selectedFilters.label?.includes("milk")} onChange={onChange}></input>
             <span>Milk </span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input
-              type="checkbox"
-              label="allergies"
-              value="allergies"
-              name="fish"
-              checked={selectedFilters.label?.includes("fish")}
-              onChange={onChange}
-            ></input>
+            <input type="checkbox" label="allergies" value="allergies" name="fish" checked={selectedFilters.label?.includes("fish")} onChange={onChange}></input>
             <span>fish</span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input
-              type="checkbox"
-              label="allergies"
-              value="allergies"
-              name="soja"
-              checked={selectedFilters.label?.includes("soja")}
-              onChange={onChange}
-            ></input>
+            <input type="checkbox" label="allergies" value="allergies" name="soja" checked={selectedFilters.label?.includes("soja")} onChange={onChange}></input>
             <span>soja </span>
           </li>
         </ul>
@@ -194,7 +145,7 @@ export const Filter = ({ setFilters, selectedFilters }) => {
             <span>16 €</span>
           </li>
         </ul>
-      </div> */}
+      </div>
     </form>
   );
 };

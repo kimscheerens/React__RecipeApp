@@ -28,11 +28,7 @@ const ImagesUpload = ({ setImageUrl }) => {
   return (
     /**[0] is because we only will upload 1 picture */
     <div>
-      <input
-        type="file"
-        className="form-group__input-img"
-        onChange={(e) => setImageUpload({ imageUrl: e.target.files[0] })}
-      ></input>
+      <input type="file" className="form-group__input-img" onChange={e => setImageUpload({ imageUrl: e.target.files[0] })}></input>
       <button onClick={uploadImage}>upload image</button>
     </div>
   );

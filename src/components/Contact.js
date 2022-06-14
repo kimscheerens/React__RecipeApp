@@ -9,33 +9,18 @@ const Contact = () => {
             <h2>CONTACT</h2>
             <div className="links">
               <div className="link">
-                <a
-                  href="https://www.linkedin.com/in/kim-scheerens-7384b398/"
-                  target="_blank"
-                >
-                  <img
-                    src="https://i.postimg.cc/m2mg2Hjm/linkedin.png"
-                    alt="linkedin"
-                  />
+                <a href="https://www.linkedin.com/in/kim-scheerens-7384b398/" target="_blank">
+                  <img src="https://i.postimg.cc/m2mg2Hjm/linkedin.png" alt="linkedin" />
                 </a>
               </div>
               <div className="link">
-                <a
-                  href="https://github.com/kimscheerens?tab=repositories"
-                  target="_blank"
-                >
-                  <img
-                    src="https://i.postimg.cc/YCV2QBJg/github.png"
-                    alt="github"
-                  />
+                <a href="https://github.com/kimscheerens?tab=repositories" target="_blank">
+                  <img src="https://i.postimg.cc/YCV2QBJg/github.png" alt="github" />
                 </a>
               </div>
               <div className="link">
                 <a href="mailto:kimscheerens@hotmail.com" target="_blank">
-                  <img
-                    src="https://i.postimg.cc/NjLfyjPB/email.png"
-                    alt="email"
-                  />
+                  <img src="https://i.postimg.cc/NjLfyjPB/email.png" alt="email" />
                 </a>
               </div>
             </div>

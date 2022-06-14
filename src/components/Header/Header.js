@@ -102,7 +102,7 @@ const Header = () => {
             ) : (
               ""
             )}
-            {/* {currentUser ? (
+            {currentUser ? (
               <li>
                 <a href="/restaurant" className="main-nav__item">
                   🍜 resto
@@ -110,7 +110,7 @@ const Header = () => {
               </li>
             ) : (
               ""
-            )} */}
+            )}
           </ul>
 
           <ThemeSelector />

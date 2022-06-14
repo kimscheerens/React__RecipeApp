@@ -99,7 +99,6 @@ export const writeFavoItem = async (recipe) => {
 export const deleteFavorite = async (id) => {
   const docRef = doc(db, "favorites", id);
   await deleteDoc(docRef);
-  console.log(deleteFavorite);
 };
 
 /** START of rating  */
