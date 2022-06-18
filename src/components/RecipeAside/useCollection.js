@@ -39,7 +39,6 @@ const useCollection = (c, filterObject = { category: ["dinner"], allergies: ["nu
     }
     return () => unsub();
   }, [c, JSON.stringify(filterObject)]);
-  console.log(data);
 
   if (!data) return null;
   return data;

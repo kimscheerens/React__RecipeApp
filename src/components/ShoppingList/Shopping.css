@@ -1,8 +1,7 @@
-@charset "UTF-8";
 .shoppingList {
   width: 100%;
   margin-top: 240px;
-  background-image: url("../../Assets/backgr.jpg");
+  background-color: var(--color-bg-tint);
 }
 .shoppingList__title {
   margin: 2em;
@@ -28,19 +27,24 @@
   text-decoration: underline;
 }
 
+.btn__group {
+  margin-left: 40px;
+  display: flex;
+  justify-content: space-between;
+}
 .btn__sm {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: #d9d9d9;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  font-family: ‘Open Sans’;
-  font-weight: 900;
+  font-size: 10px;
+  font-family: "Open Sans";
   color: #202020;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .printer {

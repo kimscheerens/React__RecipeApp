@@ -6,31 +6,10 @@ import CreateUser from "../User/CreateUser";
 import { useAuth } from "../../utils/useAuth";
 import ThemeSelector from "./ThemeSelector";
 
-	// get height of header
-  // let scrollpos = window.scrollY;
-  // const header = document.querySelector(".header");
-  // const header_height = header.offsetHeight;
-
-  // // add or remove class "scrolled" for the header
-  // const add_class_on_scroll = () => header.classList.add("scrolled");
-  // const remove_class_on_scroll = () => header.classList.remove("scrolled");
-
-  // // check if we passed the header, change class
-  // window.addEventListener('scroll', function () {
-  //   scrollpos = window.scrollY;
-
-  //   if (scrollpos >= header_height) {
-  //     add_class_on_scroll()
-  //   } else {
-  //     remove_class_on_scroll()
-  //   }
-  // });
-
 
 const Header = () => {
   const currentUser = useAuth();
 
- 
   return (
     <header className="header">
       <div className="header__container">

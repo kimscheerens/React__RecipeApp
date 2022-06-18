@@ -6,12 +6,11 @@ function Overview() {
   const [filters, setFilters] = useState({});
   const recipes = useCollection("recept", filters);
 
-  console.log(recipes);
   return (
     <>
       <section className="bundel">    
         <Filter setFilters={setFilters} selectedFilters={filters} />
-        <div className="filter-pruts">
+        <div className="filter-global">
         {recipes.map((recipe, i) => (
           <div recipe={recipe} key={recipe.id} className="filter-result">
             <div className="filter-result__item">

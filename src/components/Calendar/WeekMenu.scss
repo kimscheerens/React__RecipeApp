@@ -13,11 +13,17 @@
 }
 
 .rbc-event{
+  font-size: 14px;
   background-color: var(--color-accent-combo);
+}
+
+.rbc-selected{
+  background-color: var(--color-accent);
 }
 
 .rbc-event-label{
   font-size: 0;
+  background-color: var(--color-accent-combo);
   
 }
 

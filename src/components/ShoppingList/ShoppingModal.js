@@ -14,9 +14,10 @@ const ShoppingModal = ({ closeModal }) => {
           <input className="ShoppingModal__input" type="numbre" placeholder="price" />
         </div>
         <button
-          onClick={() => {
+          onChange={() => {
             writeShoppingItem();
           }}
+          onClick={() => closeModal(false)}
         >
           add to chart
         </button>

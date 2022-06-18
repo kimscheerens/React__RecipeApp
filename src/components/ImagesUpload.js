@@ -10,8 +10,7 @@ const ImagesUpload = ({ setImageUrl }) => {
 
   const uploadImage = () => {
     if (imageUpload == null) return;
-    console.log(imageUpload);
-
+  
     const imageRef = ref(
       storage,
       `Images/${v4()}_${imageUpload.imageUrl.name}`
@@ -20,7 +19,6 @@ const ImagesUpload = ({ setImageUrl }) => {
       // alert("image uploaded");
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUrl(url);
-        console.log(url);
       });
     });
   };

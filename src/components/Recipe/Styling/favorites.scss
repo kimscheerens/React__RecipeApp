@@ -62,6 +62,7 @@
   justify-content: center;
 
   &__item {
+    color: var(--color-accent);
     background-color: var(--color-bg-tint);
     border: var(--color-accent) 1px solid;
     border-radius: 10px;
@@ -76,10 +77,14 @@
   min-width: 175px;
   flex-grow: 1;
   flex-shrink: 1;
-  border: solid 1px var(--color-accent);
+  box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   overflow: hidden;
   position: relative;
+
+  &__title{
+    color: var(--color-accent);
+  }
 
   &__img {
     object-fit: cover;

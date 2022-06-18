@@ -7,16 +7,12 @@ import { v4 } from "uuid";
 
 const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
   const { recipeId } = useParams();
-  console.log(recipeId);
-  console.log(recipeDetailid);
 
   const [newTitle, setNewTitle] = useState(recipeDetailid.title);
   const [newCategory, setNewCategory] = useState(recipeDetailid.category);
   const [newAllergie, setNewAllergie] = useState(recipeDetailid.allergies);
   const [newImg, setNewImg] = useState(recipeDetailid.imageUrl);
-  const [newIngredients, setNewIngredients] = useState(
-    recipeDetailid.ingredients
-  );
+  const [newIngredients, setNewIngredients] = useState(recipeDetailid.ingredients);
   const [newPrice, setNewPrice] = useState(recipeDetailid.price);
   const [newTime, setNewTime] = useState(recipeDetailid.time);
   const [newSteps, setNewSteps] = useState(recipeDetailid.steps);
@@ -36,14 +32,11 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
     });
   };
 
-  const uploadFile = async (e) => {
+  const uploadFile = async e => {
     let file = e.target.files[0];
-    let fileRef = ref(
-      storage,
-      `Images/${v4()}_${recipeDetailid.imageUrl.name}`
-    );
+    let fileRef = ref(storage, `Images/${v4()}_${recipeDetailid.imageUrl.name}`);
     const uploadTask = await uploadBytesResumable(fileRef, file);
-    const photoURL = await getDownloadURL(fileRef).then((url) => {
+    const photoURL = await getDownloadURL(fileRef).then(url => {
       setNewImg(url);
     });
   };
@@ -54,19 +47,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
     setNewIngredients(values);
   };
 
-  // const handleAddIngredientField = (e) => {
-  //   e.preventDefault();
-  //   setNewIngredients([
-  //     ...newIngredients,
-  //     {
-  //       ingredient: "",
-  //       amount: "",
-  //       unit: "",
-  //     },
-  //   ]);
-  // };
-
-  const handleAddIngredientField = (e) => {
+  const handleAddIngredientField = e => {
     e.preventDefault();
     setNewIngredients([
       ...newIngredients,
@@ -78,7 +59,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
     ]);
   };
 
-  const handleRemoveIngredientsField = (index) => {
+  const handleRemoveIngredientsField = index => {
     const values = [...newIngredients];
     values.splice(index, 1);
     setNewIngredients(values);
@@ -87,30 +68,20 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
   return (
     <div className="modalBackground">
       <div className="recipeUpdate">
-        <button
-          type="button"
-          className="modal__btn"
-          onClick={() => closeModal(false)}
-        >
+        <button type="button" className="modal__btn" onClick={() => closeModal(false)}>
           x
         </button>
         <div key={recipeDetailid.recipeId}> </div>
         <h2>Update Recipe:</h2>
         <h3 className="modal__subtitle">title: </h3>
-        <input
-          className="modal__input"
-          type="text"
-          placeholder={recipeDetailid.title}
-          value={recipeDetailid.newTitle}
-          onChange={(e) => setNewTitle(e.target.value)}
-        />
+        <input className="modal__input" type="text" placeholder={recipeDetailid.title} value={recipeDetailid.newTitle} onChange={e => setNewTitle(e.target.value)} />
         <h3 className="modal__subtitle"> Description:</h3>
         <input
           className="modal__input"
           type="text"
           value={recipeDetailid.newDescription}
           placeholder={recipeDetailid.desc}
-          onChange={(e) => {
+          onChange={e => {
             setNewDescription(e.target.value);
           }}
         />
@@ -121,22 +92,26 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
             name="label"
             type="text"
             value={recipeDetailid.category}
-            onChange={(e) => {
+            onChange={e => {
               setNewCategory(e.target.value);
             }}
           >
             <option className="select_box__text">Chose Dinner moment</option>
             <option className="select_box__text" value="Breakfast">
-              breakfast
+              {" "}
+              breakfast{" "}
             </option>
             <option className="select_box__text" value="lunch">
-              lunch
+              {" "}
+              lunch{" "}
             </option>
             <option className="select_box__text" value="dinner">
-              dinner
+              {" "}
+              dinner{" "}
             </option>
             <option className="select_box__text" value="snacks">
-              snacks
+              {" "}
+              snacks{" "}
             </option>
           </select>
         </div>
@@ -149,7 +124,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
               type="checkbox"
               name="allergies"
               value="nuts"
-              onChange={(e) => {
+              onChange={e => {
                 setNewAllergie(e.target.value);
               }}
             />
@@ -160,7 +135,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
               type="checkbox"
               name="allergies"
               value="soja"
-              onChange={(e) => {
+              onChange={e => {
                 setNewAllergie(e.target.value);
               }}
             />
@@ -171,7 +146,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
               type="checkbox"
               name="allergies"
               value="milk"
-              onChange={(e) => {
+              onChange={e => {
                 setNewAllergie(e.target.value);
               }}
             />
@@ -181,7 +156,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
               type="checkbox"
               name="allergies"
               value="fish and shellfish"
-              onChange={(e) => {
+              onChange={e => {
                 setNewAllergie(e.target.value);
               }}
             />
@@ -189,19 +164,10 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
           </div>
         </div>
         <div className="modal__imgGroup">
-          <img
-            src={recipeDetailid.imageUrl}
-            alt="recipe"
-            className="modal__img"
-          />
+          <img src={recipeDetailid.imageUrl} alt="recipe" className="modal__img" />
           <div>
             <h3 className="modal__subtitle">Change image: </h3>
-            <input
-              type="file"
-              name="file"
-              onChange={uploadFile}
-              className="modal__input"
-            />
+            <input type="file" name="file" onChange={uploadFile} className="modal__input" />
           </div>
         </div>
 
@@ -211,7 +177,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
           name="time"
           className="modal__input"
           value={recipeDetailid.time}
-          onChange={(e) => {
+          onChange={e => {
             setNewTime(e.target.value);
           }}
         />
@@ -221,19 +187,13 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
           name="price"
           className="modal__input"
           value={recipeDetailid.price}
-          onChange={(e) => {
+          onChange={e => {
             setNewPrice(e.target.value);
           }}
         />
         <h3 className="modal__subtitle">ingredients:</h3>
         {newIngredients.map((newIngredients, i) => (
-          <input
-            className="form-group__input"
-            type="text"
-            key={i}
-            value={recipeDetailid.Ingredients}
-            onChange={(e) => handleChangeInput(i, e)}
-          />
+          <input className="form-group__input" type="text" key={i} value={recipeDetailid.Ingredients} onChange={e => handleChangeInput(i, e)} />
         ))}
         <button type="button" onClick={handleAddIngredientField}>
           +
@@ -244,12 +204,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
 
         <h3 className="modal__subtitle">steps:</h3>
         {newSteps.map((newSteps, i) => (
-          <textarea
-            type="text"
-            placeholder="enter the steps..."
-            key={i}
-            value={recipeDetailid.steps}
-          />
+          <textarea type="text" placeholder="enter the steps..." key={i} value={recipeDetailid.steps} />
         ))}
         <button type="button">+</button>
         <button type="button">-</button>
@@ -258,13 +213,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
           <button type="button" onClick={() => closeModal(false)}>
             close
           </button>
-          <button
-            type="button"
-            onClick={() => {
-              handleEdit(recipeId);
-              setRecipeToEdit(null);
-            }}
-          >
+          <button type="button" onClick={() => { handleEdit(recipeId); setRecipeToEdit(null);}}>
             update Recipe
           </button>
         </div>

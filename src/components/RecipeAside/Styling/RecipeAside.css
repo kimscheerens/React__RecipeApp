@@ -9,6 +9,7 @@
 
 .filter-section {
   background-color: var(--color-bg-tint);
+  color: var(--color-accent);
 }
 .filter-section__title {
   color: var(--color-accent);
@@ -68,7 +69,7 @@ input {
   background-color: var(--color-bg-tint);
 }
 
-.filter-pruts {
+.filter-global {
   box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
   background-color: var(--color-bg-tint);
   display: flex;
@@ -76,14 +77,14 @@ input {
   justify-content: center;
   width: 75%;
   margin-left: 50px;
-  margin-top: 200px;
+  margin-top: 320px;
 }
 
 .filter-result {
   display: flex;
 }
 .filter-result__item {
-  border: 1px solid var(--color-accent);
+  box-shadow: 1px 1px 20px -5px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   margin: 20px;
   width: 210px;
@@ -93,10 +94,10 @@ input {
   margin-left: -10px;
 }
 .filter-result__img {
+  width: 210px;
+  height: 130px;
   -o-object-fit: cover;
      object-fit: cover;
   margin-top: 10px;
-  width: 200px;
-  height: 120px;
   border-radius: 0 0 10px 10px;
 }/*# sourceMappingURL=RecipeAside.css.map */

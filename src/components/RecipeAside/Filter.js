@@ -114,26 +114,26 @@ export const Filter = ({ setFilters, selectedFilters }) => {
         <ul className="filter-list">
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox" time="5 " value="5 " name="time" checked={selectedFilters.price?.includes("5 ")} onChange={onChange}></input>
-            <span>5 €</span>
+            <input type="checkbox" min="0" max="5" name="price" checked={selectedFilters.price?.includes("5")} onChange={onChange}></input>
+            <span> &#60; 5 €</span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox" time="5 " value="5 " name="time" checked={selectedFilters.price?.includes("10 ")} onChange={onChange}></input>
+            <input type="checkbox" min="6" max="15" name="price" checked={selectedFilters.price?.includes("10")} onChange={onChange}></input>
 
-            <span>5 € - 10 € </span>
+            <span>6€ - 15 € </span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox" time="5 " value="5 " name="time" checked={selectedFilters.price?.includes("15 ")} onChange={onChange}></input>
+            <input type="checkbox" min="16" max="25" name="price" checked={selectedFilters.price?.includes("15")} onChange={onChange}></input>
 
-            <span>11€ - 15 €</span>
+            <span>16€ - 25 €</span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox" time="5 " value="5 " name="time" checked={selectedFilters.price?.includes("20 ")} onChange={onChange}></input>
+            <input type="checkbox" min="26" max="99" name="price" checked={selectedFilters.price?.includes("20")} onChange={onChange}></input>
 
-            <span>16 €</span>
+            <span> &#62; 26 €</span>
           </li>
         </ul>
       </div>

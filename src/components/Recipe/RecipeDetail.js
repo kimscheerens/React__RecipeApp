@@ -34,7 +34,6 @@ function RecipeDetail() {
   }, [recipeDetail]);
 
   if (!recipeDetail) {
-    // console.log("no recipe set");
     return <div>id='{recipeid}'</div>;
   }
 

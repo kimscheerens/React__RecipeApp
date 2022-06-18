@@ -16,8 +16,7 @@ export default function Login() {
   async function handleLogin() {
     setLoading(true);
     try {
-      console.log(handleLogin);
-      await login(emailRef.current.value, passwordRef.current.value);
+     await login(emailRef.current.value, passwordRef.current.value);
       nav("/");
     } catch {
       alert("Failed to sign in");

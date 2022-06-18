@@ -7,30 +7,28 @@ import ShoppingModal from "./ShoppingModal";
 
 //crud for the shopping
 
-function Shop({ recipeShop }) {
+function Shop({ recipeShop, id }) {
   const [openShopModal, setOpenShopModal] = useState(false);
   console.log(recipeShop);
   //  const [count, setCount] = useState(`${i.quantity}`);
   const [count, setCount] = useState(null);
   const [cart, setCart] = useState([]);
-  const [products, setProducts] = useState({
-    id: "",
-    ingredient: "",
-    price: "",
-    unit: "",
-    url: "",
-    cart: false,
-    amount: "",
-  });
+  // const [products, setProducts] = useState({
+  //   id: "",
+  //   ingredient: [{ ingredient, amount, unit }],
+  //   price: "",
+  //   url: "",
+  //   cart: false,
+  // });
 
   // to get all the data from firestore
   const shoppingCollectionRef = collection(db, "shoppingCart");
   console.log(shoppingCollectionRef);
 
   useEffect(() => {
-    onSnapshot(shoppingCollectionRef, (snapshot) => {
+    onSnapshot(shoppingCollectionRef, snapshot => {
       setCart(
-        snapshot.docs.map((doc) => {
+        snapshot.docs.map(doc => {
           return {
             id: doc.id,
             ...doc.data(),
@@ -40,10 +38,9 @@ function Shop({ recipeShop }) {
     });
   }, []);
 
-
   function total() {
     let x = 0;
-    cart.map((i) => {
+    cart.map(i => {
       x += i.price * i.quantity;
     });
     return x;
@@ -58,14 +55,15 @@ function Shop({ recipeShop }) {
             <tr>
               <th>#</th>
               <th>Recipe Title</th>
-              <th>Product Name</th>
+              <th>ingredient</th>
+              <th>amount</th>
+              <th>unit</th>
               <th>Price</th>
-              <th>Quantity</th>
             </tr>
+            <button className="btn__sm" onClick={() => deleteShopping(id)} shoppingId={id}>
+              🗑️ all
+            </button>
           </thead>
-          <button className="btn__sm" onClick={() => deleteShopping(cart.id)} shoppingId={cart.id}>
-            Empty Cart
-          </button>
           <tbody>
             {cart.map((i, index) => (
               <tr key={i.id}>
@@ -75,9 +73,16 @@ function Shop({ recipeShop }) {
                   <img src={i.url} className="cart-img" />
                   <img src={i.image} className="cart-img" />
                 </th>
-                <td>{i.name}</td>
-                <td>{i.price} €</td>
                 <td>
+                  [i.ingredients].map((i, index)
+                  <li>{i.ingredient}</li>
+                  <li>{i.amount}</li>
+                  <li>{i.unit}</li>)
+                </td>
+                {/* <td>{i.amount}</td>
+                <td>{i.unit}</td>
+                <td>{i.price} €</td> */}
+                <td className="btn__group">
                   <button onClick={() => setCount(count - 1)} className="btn__sm">
                     -
                   </button>
