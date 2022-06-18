@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaSleigh } from "react-icons/fa";
 import { deleteItem, writeShoppingItem, writeFavoItem, writeCalendarItem } from "../../utils/crud";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../utils/firebase";
@@ -22,6 +22,9 @@ function RecipeDetail() {
   /**how to open the modal to update the recipe */
   const [openModal, setOpenModal] = useState(false);
   const [recipeToEdit, setRecipeToEdit] = useState(null);
+
+  /** vieuw ingrediënts or steps  */
+  const [openViewIngredients, setOpenViewIngredients] = useState(false);
 
   useEffect(() => {
     const oneRecipeRef = doc(db, "recept", recipeid);
@@ -59,7 +62,7 @@ function RecipeDetail() {
           <button className="recipeDetail__btn">
             <FaRegHeart onClick={() => writeFavoItem(recipeDetail)}></FaRegHeart>
           </button>
-          <button className="recipeDetail__btn-date">
+          {/* <button className="recipeDetail__btn-date">
             <DatePicker
               className="recipeDetail__btn-detail"
               selected={startDate}
@@ -67,7 +70,7 @@ function RecipeDetail() {
               onSelect={handleDateSelect} //when day is clicked
               onClick={() => writeCalendarItem(recipeDetail)}
             />
-          </button>
+          </button> */}
         </div>
         <div className="Detail">
           <aside className="recipeDetail__aside">
@@ -79,40 +82,50 @@ function RecipeDetail() {
             <span className="aside__price">Price: {recipeDetail.price * amountOfPersons} €</span>
           </aside>
           <div className="recipeDetail-container">
-            <li onClick={() => {}}>
-              <h4 className="recipeDetail__ingredients" id="ingredients">
-                INGREDIENTS
-              </h4>
-              <button
-                className="button-shop"
-                recipeShop={recipeDetail.ingredients}
-                onClick={() => {
-                  writeShoppingItem(recipeDetail);
-                }}
-              >
-                🛒
-              </button>
-              <div>
-                {recipeDetail.ingredients.map((ingredient, i) => (
-                  <ul className="recipeDetail__ingredients__list" key={i}>
-                    <li className="recipeDetail__ingredients__list-item">{ingredient.ingredient}</li>
-                    <li className="recipeDetail__ingredients__list-item">{ingredient.amount * amountOfPersons}</li>
-                    <li className="recipeDetail__ingredients__list-item">{ingredient.unit}</li>
-                  </ul>
-                ))}
-              </div>
-            </li>
-            <li className="recipeDetail-container__list-two" onClick={() => {}}>
-              <h4 id="preparation" className="recipeDetail__preparation">
-                PREPARATION
-              </h4>
-              <h5>Steps</h5>
-              <ol>
-                {recipeDetail.steps.map((step, i) => (
-                  <li key={i}>{step}</li>
-                ))}
-              </ol>
-            </li>
+            {openViewIngredients ? (
+              ""
+            ) : (
+              <li>
+                <h4 className="recipeDetail__ingredients" id="ingredients" onClick={() => setOpenViewIngredients(true)}>
+                  INGREDIENTS
+                  <h3 className="recipeDetail__changeTitle">Preparation</h3>
+                </h4>
+                <button
+                  className="button-shop"
+                  recipeShop={recipeDetail.ingredients}
+                  onClick={() => {
+                    writeShoppingItem(recipeDetail);
+                  }}
+                >
+                  🛒
+                </button>
+                <div className="recipeDetail__ingredients__container">
+                  {recipeDetail.ingredients.map((ingredient, i) => (
+                    <ul className="recipeDetail__ingredients__list" key={i}>
+                      <li className="recipeDetail__ingredients__list-item-ing">{ingredient.ingredient}</li>
+                      <li className="recipeDetail__ingredients__list-item">{ingredient.amount * amountOfPersons}</li>
+                      <li className="recipeDetail__ingredients__list-item">{ingredient.unit}</li>
+                    </ul>
+                  ))}
+                </div>
+              </li>
+            )}
+
+            {openViewIngredients && (
+              <li className="recipeDetail-container__list-two">
+                <h4 className="recipeDetail__ingredients" id="ingredients" onClick={() => setOpenViewIngredients(false)}>
+                  PREPARATION
+                  <h3 className="recipeDetail__changeTitle">ingredients</h3>
+                </h4>
+                <ol className="recipeDetail-container__steps">
+                  {recipeDetail.steps.map((step, i) => (
+                    <li key={i} className="recipeDetail-container__list">
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+              </li>
+            )}
           </div>
         </div>
       </div>

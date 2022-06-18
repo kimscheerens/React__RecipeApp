@@ -1,12 +1,9 @@
-import { collection, doc, onSnapshot, query, where } from "firebase/firestore";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { db } from "../../utils/firebase";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-const useCollection = (c, filterObject = { category: ["dinner"] }) => {
+const useCollection = (c, filterObject = { category: ["dinner"], allergies: ["nuts"], price: [" 5 "], time: ["5 min"] }) => {
   const [data, setData] = useState([]);
-
-  console.log(filterObject);
-  console.log(c);
   /**
    * {filterObject
    * category:["lunch"]
@@ -16,7 +13,7 @@ const useCollection = (c, filterObject = { category: ["dinner"] }) => {
   useEffect(() => {
     let unsub;
     let ref = collection(db, "recept");
-    console.log(ref);
+
     const filters = Object.entries(filterObject);
     if (filters.length === 0) {
       unsub = onSnapshot(ref, snapshot => {
@@ -34,8 +31,6 @@ const useCollection = (c, filterObject = { category: ["dinner"] }) => {
       // let searchQuery = query(ref, ...whereStatements);
       unsub = onSnapshot(...queries, snapshot => {
         let results = [];
-        // dit zou je al moeten zien...
-        console.log(snapshot);
         snapshot.docs.forEach(doc => {
           results.push({ ...doc.data(), id: doc.id });
         });

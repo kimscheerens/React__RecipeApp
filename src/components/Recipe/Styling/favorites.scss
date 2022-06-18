@@ -9,13 +9,14 @@
   background-color: var(--color-bg-tint);
   width: 100%;
   margin-top: 3em;
-  padding-bottom: 3em;
+  padding-bottom: 1em;
   margin-bottom: 0px;
 
   &__container {
     display: flex;
     flex-direction: column;
-    padding: 10px 20px;
+    padding: 10px 50px 10px 50px;
+
   }
 
   &__title {
@@ -32,7 +33,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 2rem;   
 
     ::after {
       box-sizing: border-box;
@@ -63,7 +64,7 @@
   &__item {
     background-color: var(--color-bg-tint);
     border: var(--color-accent) 1px solid;
-    border-radius: 25px;
+    border-radius: 10px;
     padding: 1px 10px 2px 10px;
   }
 }

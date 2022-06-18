@@ -37,7 +37,7 @@ const Favorites = () => {
             {favorite.map(favorit => (
               <article className="Favo-recipe-item" key={favorit.id}>
                 <div className="Favo-recipe-item__container" id={favorit.id}>
-                  <img src={favorit.image} alt="test" className="Favo-recipe-item__img" />
+                  <img src={favorit.image} alt="favorite recipe" className="Favo-recipe-item__img" />
                   {currentUser ? (
                     <FaHeart
                       className="Favo-recipe-item__heart"

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 export const Filter = ({ setFilters, selectedFilters }) => {
-  const onChange = (e) => {
+  const onChange = e => {
     /** category:["Breakfast"] */
 
     const selectedName = e.target.name;
@@ -20,9 +20,7 @@ export const Filter = ({ setFilters, selectedFilters }) => {
     } else {
       // if checkboxes are being deselected
       // we calculate the new values of the selectedName by removing the selected value
-      const newValues = selectedFilters[selectedName].filter(
-        (value) => value !== e.target.value
-      );
+      const newValues = selectedFilters[selectedName].filter(value => value !== e.target.value);
       // we spread selectedFilters to preserve already selected filters
       const newFilters = { ...selectedFilters, [selectedName]: newValues };
       // if the new values are an empty array we need to remove the selectedName from the selectedFilters
@@ -34,8 +32,6 @@ export const Filter = ({ setFilters, selectedFilters }) => {
     }
   };
 
-  console.log(selectedFilters);
-
   return (
     <form className="search-filters-form">
       <div className="filter-section">
@@ -43,15 +39,7 @@ export const Filter = ({ setFilters, selectedFilters }) => {
         <ul className="filter-list">
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input
-              type="checkbox"
-              // id={`default-${type}-breakfast`}
-              category="breakfast"
-              value="breakfast"
-              name="category"
-              checked={selectedFilters.category?.includes("breakfast")}
-              onChange={onChange}
-            ></input>
+            <input type="checkbox" category="Breakfast" value="Breakfast" name="category" checked={selectedFilters.category?.includes("Breakfast")} onChange={onChange}></input>
             <span>breakfast </span>
           </li>
           <li className="filter-list__item">
@@ -76,22 +64,22 @@ export const Filter = ({ setFilters, selectedFilters }) => {
         <ul className="filter-list">
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox"></input>
+            <input type="checkbox" time="5" value="5" name="time" checked={selectedFilters.time?.includes("5")} onChange={onChange}></input>
             <span>5 min </span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox"></input>
+            <input type="checkbox" time="10" value="10" name="time" checked={selectedFilters.time?.includes("10")} onChange={onChange}></input>
             <span>10 min</span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox"></input>
+            <input type="checkbox" time="15" value="15" name="time" checked={selectedFilters.time?.includes("15")} onChange={onChange}></input>
             <span>15 min </span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox"></input>
+            <input type="checkbox" time="30" value="30" name="time" checked={selectedFilters.time?.includes("30")} onChange={onChange}></input>
             <span>30 min </span>
           </li>
         </ul>
@@ -101,22 +89,22 @@ export const Filter = ({ setFilters, selectedFilters }) => {
         <ul className="filter-list">
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox" label="allergies" value="allergies" name="nuts" checked={selectedFilters.label?.includes("nuts")} onChange={onChange}></input>
-            <span>Nuts</span>
+            <input type="checkbox" allergies="nuts" value="nuts" name="allergies" checked={selectedFilters.allergies?.includes("nuts")} onChange={onChange}></input>
+            <span>nuts</span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox" label="allergies" value="allergies" name="milk" checked={selectedFilters.label?.includes("milk")} onChange={onChange}></input>
-            <span>Milk </span>
+            <input type="checkbox" allergies="milk" value="milk" name="allergies" checked={selectedFilters.allergies?.includes("milk")} onChange={onChange}></input>
+            <span>milk </span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox" label="allergies" value="allergies" name="fish" checked={selectedFilters.label?.includes("fish")} onChange={onChange}></input>
+            <input type="checkbox" allergies="fish" value="fish" name="allergies" checked={selectedFilters.allergies?.includes("fish")} onChange={onChange}></input>
             <span>fish</span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox" label="allergies" value="allergies" name="soja" checked={selectedFilters.label?.includes("soja")} onChange={onChange}></input>
+            <input type="checkbox" allergies="soja" value="soja" name="allergies" checked={selectedFilters.allergies?.includes("soja")} onChange={onChange}></input>
             <span>soja </span>
           </li>
         </ul>
@@ -126,22 +114,25 @@ export const Filter = ({ setFilters, selectedFilters }) => {
         <ul className="filter-list">
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox"></input>
+            <input type="checkbox" time="5 " value="5 " name="time" checked={selectedFilters.price?.includes("5 ")} onChange={onChange}></input>
             <span>5 €</span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox"></input>
+            <input type="checkbox" time="5 " value="5 " name="time" checked={selectedFilters.price?.includes("10 ")} onChange={onChange}></input>
+
             <span>5 € - 10 € </span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox"></input>
+            <input type="checkbox" time="5 " value="5 " name="time" checked={selectedFilters.price?.includes("15 ")} onChange={onChange}></input>
+
             <span>11€ - 15 €</span>
           </li>
           <li className="filter-list__item">
             <label className="filter-list-label"></label>
-            <input type="checkbox"></input>
+            <input type="checkbox" time="5 " value="5 " name="time" checked={selectedFilters.price?.includes("20 ")} onChange={onChange}></input>
+
             <span>16 €</span>
           </li>
         </ul>

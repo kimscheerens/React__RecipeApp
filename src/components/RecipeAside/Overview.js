@@ -9,14 +9,17 @@ function Overview() {
   console.log(recipes);
   return (
     <>
-      <div>overview</div>
-      <Filter setFilters={setFilters} selectedFilters={filters} />
-      <section>
-      {recipes.map((recipe, i) => (
-        <div recipe={recipe} key={recipe.id} />       
-
-            ))}
-
+      <section className="bundel">    
+        <Filter setFilters={setFilters} selectedFilters={filters} />
+        <div className="filter-pruts">
+        {recipes.map((recipe, i) => (
+          <div recipe={recipe} key={recipe.id} className="filter-result">
+            <div className="filter-result__item">
+              <h4 className="filter-result__title">{recipe.title}</h4>
+              <img src={recipe.imageUrl} alt="filtert recipe" className="filter-result__img" />
+            </div>
+          </div>
+        ))}</div>
       </section>
     </>
   );
