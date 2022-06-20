@@ -5,7 +5,6 @@ const uuidv4 = require("uuid").v4;
 
 /** START off recipeCollection CRUD */
 export const recipeCollectionRef = collection(db, "recept");
-// console.log(recipeCollectionRef);
 
 // C create item recipeCollection
 export const writeItem = async () => {
@@ -17,12 +16,9 @@ export const writeItem = async () => {
 // R read item recipeCollection
 export const readItem = async id => {
   const docSnap = await getDoc(recipeCollectionRef, id);
-
   if (docSnap.exists()) {
-    // console.log(docSnap.data());
   } else {
-    // doc.data() will be undefined in this case
-    // console.log("No such document!");
+    doc.data(); //will be undefined in this case
   }
 };
 
@@ -31,13 +27,10 @@ export const readAllItem = async id => {
   const docRef = doc(db, "recept", id);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
-    // console.log(docSnap.data());
   } else {
-    // doc.data() will be undefined in this case
     console.log("No such document!");
   }
 };
-// console.log(readAllItem);
 
 // U update item recipeCollection
 export const updateRecipe = async (id, updatedRecipe) => {
@@ -48,8 +41,6 @@ export const updateRecipe = async (id, updatedRecipe) => {
     id: doc.id,
     ...doc.data(),
   };
-
-  // console.log(NewRecipe);
   return NewRecipe;
 };
 
@@ -61,7 +52,6 @@ export const deleteItem = async id => {
 
 /** START of favorite CRUD */
 export const favoritesCollectionRefLimit = query(collection(db, "favorites"), limit(4));
-// console.log(favoritesCollectionRef);
 
 // C create item from favorite collection
 export const writeFavoItem = async recipe => {
@@ -118,7 +108,6 @@ export const calendarRef = collection(db, "WeekPlanner");
 
 /** START of CRUD ShoppingCart collection */
 export const shoppingCollectionRef = collection(db, "shoppingCart");
-// console.log(shoppingCollectionRef);
 
 // C create item from ShoppingCart collection
 export const writeShoppingItem = async recipeDetail => {
@@ -140,17 +129,13 @@ export const writeShoppingItem = async recipeDetail => {
 
 // export const updateCart = async (id) => {
 //   const docRef = doc(db, "shoppingCart", id);
-//   console.log(docRef);
 //   await updateDoc(docRef, { quantity: `${increment || decrement}` });
 // };
-// console.log(updateCart);
 
 // D delete item from ShoppingCart collection
 export const deleteShopping = async id => {
   const docRef = doc(db, "shoppingCart", id);
   await deleteDoc(docRef);
-  console.log(id);
-  console.log(docRef);
-  console.log(deleteShopping);
 };
+
 

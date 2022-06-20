@@ -47,9 +47,9 @@ const Restaurant = () => {
     <div className="restaurant">
       <h2 className="restaurant__title">Don't want to cook?</h2>
       <div className="restaurant__container">
-        {/* <Autocomplete onPlaceChanged={onPlaceChanged}> */}
-        <RestaurantList childClicked={childClicked} places={filteredPlaces.length ? filteredPlaces : places} type={type} setType={setType} className="restaurant__List" />
-        <Map setChildClicked={setChildClicked} setBounds={setBounds} setCoords={setCoords} coords={coords} places={filteredPlaces.length ? filteredPlaces : places} className="map-container" />
+        {/* <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}> */}
+          <RestaurantList childClicked={childClicked} places={filteredPlaces.length ? filteredPlaces : places} type={type} setType={setType} className="restaurant__List" />
+          <Map setChildClicked={setChildClicked} setBounds={setBounds} setCoords={setCoords} coords={coords} places={filteredPlaces.length ? filteredPlaces : places} className="map-container" />
         {/* </Autocomplete> */}
       </div>
     </div>

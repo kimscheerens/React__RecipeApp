@@ -23,6 +23,6 @@ export const getPlacesData = async (type, sw, ne) => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };

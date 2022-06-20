@@ -7,7 +7,6 @@
 .top-recep {
   background-color: var(--color-bg-tint);
   width: 100%;
-  margin-top: 3em;
   padding-bottom: 1em;
   margin-bottom: 0px;
 }
@@ -15,6 +14,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px 50px 10px 50px;
+  margin-bottom: 2em;
 }
 .top-recep__title {
   padding-top: 2em;
@@ -37,7 +37,7 @@
 }
 .top-recep__cta {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 24px;
   border: 1px solid var(--color-accent);
   background-color: var(--color-accent);
   color: white;

@@ -193,7 +193,7 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
             <button type="button" onClick={handleAddIngredientField}>
               +
             </button>
-            <button type="button" onClicke={handleRemoveIngredientsField}>
+            <button type="button" onClick={handleRemoveIngredientsField}>
               -
             </button>
           </div>

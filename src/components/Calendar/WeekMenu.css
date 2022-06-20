@@ -10,7 +10,8 @@
 }
 
 .rbc-event {
-  font-size: 14px;
+  color: var(--color-accent);
+  font-size: 16px;
   background-color: var(--color-accent-combo);
 }
 
@@ -18,9 +19,15 @@
   background-color: var(--color-accent);
 }
 
+.rbc-ellipsis .rbc-show-more .rbc-row-segment .rbc-event-content .rbc-event-label {
+  display: none;
+}
+
 .rbc-event-label {
-  font-size: 0;
+  font-size: 1%;
+  display: none;
   background-color: var(--color-accent-combo);
+  color: var(--color-accent);
 }
 
 .rbc-event-content {

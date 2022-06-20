@@ -23,23 +23,23 @@ function reducer(state, action) {
   }
 }
 
-export default function ShopCalculator() {
-  const inputRef = useRef();
+export default function ShopCalculator({ counting }) {
+  // const inputRef = useRef();
 
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <>
+    <div className="btn__group">
       <button onClick={() => dispatch({ type: "decrement", value: 1 })} className="btn__sm" disabled={state.count <= 0}>
         -
       </button>
-      <p>{state.count}</p>
+      <p> {state.count * counting} </p>
       <button onClick={() => dispatch({ type: "increment", value: 1 })} className="btn__sm">
         +
       </button>
-      <input onClick={() => dispatch({ type: "add", name: inputRef.current.value })} className="input"></input>
       <button onClick={() => dispatch({ type: "reset" })} className="btn__sm">
         reset
       </button>
-    </>
+      {/* <input onClick={() => dispatch({ type: "add", name: inputRef.current.value })} className="input"></input> */}
+    </div>
   );
 }

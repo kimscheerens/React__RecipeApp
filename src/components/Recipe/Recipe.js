@@ -224,7 +224,7 @@ function Recipe( ) {
           <div className="popup-inner">
             <div className="popup-inner__close">
               <h2>Add a new recipe</h2>
-              <button type="button" className="popup-inner__btn" class="remove" onClick={() => setPopupActive(false)}>
+              <button type="button" className="popup-inner__btn" onClick={() => setPopupActive(false)}>
                 x
               </button>
             </div>
@@ -315,8 +315,8 @@ function Recipe( ) {
                 </button>
               </div>
               <div className="two_buttons">
-                <button type="submit" >Submit</button>
-                    <button type="button" class="remove" onClick={() => setPopupActive(false)}>
+                <button type="submit">Submit</button>
+                <button type="button" class="remove" onClick={() => setPopupActive(false)}>
                   Close
                 </button>
               </div>

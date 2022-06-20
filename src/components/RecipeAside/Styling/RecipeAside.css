@@ -92,6 +92,7 @@ input {
 }
 .filter-result__title {
   margin-left: -10px;
+  padding-left: 5px;
 }
 .filter-result__img {
   width: 210px;

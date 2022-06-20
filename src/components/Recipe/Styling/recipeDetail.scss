@@ -60,18 +60,11 @@
   }
 
   &__btn-date{
-    width: 100px;
-    height: 55px;
-    margin-left: 10px;
-    padding: 5px;
-  }
-
-  &__btn-detail{
     width: 80px;
-    padding: 5px;
-    margin-top: 10px;
+    height: 20px;
+    border: none;
+    background-color: var(--color-accent-combo);  
   }
-
 
   &__btn-icon {
     width: 20px;
@@ -121,6 +114,7 @@
   }
 
   &__changeTitle{
+    margin-left: 120px;
     font-size: 12px;
     opacity: 55%;
   }

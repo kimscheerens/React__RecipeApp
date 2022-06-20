@@ -60,22 +60,21 @@ function RecipeDetail() {
           <button className="recipeDetail__btn" onClick={() => deleteItem(recipeDetail.id)}>
             🗑️
           </button>
-          <button className="recipeDetail__btn" onClick={() => setOpenModal(true)} recipeToEdit={recipeToEdit} setRecipeToEdit={setRecipeToEdit}>
+          <button className="recipeDetail__btn" onClick={() => setOpenModal(true)} >
             ✏️
           </button>
-          {openModal && <Modal closeModal={setOpenModal} recipeDetailid={recipeDetail} />}
+          {openModal && <Modal closeModal={setOpenModal} recipeDetailid={recipeDetail} recipeToEdit={recipeToEdit} setRecipeToEdit={setRecipeToEdit} />}
           <button className="recipeDetail__btn">
             <FaRegHeart onClick={() => writeFavoItem(recipeDetail)}></FaRegHeart>
-          </button>
-          <button className="recipeDetail__btn-date">
+          </button>  
+          <button>
             <DatePicker
               dateFormat="dd-MM-yyyy"
-              className="recipeDetail__btn-detail"
+              className="recipeDetail__btn-date"
               selected={startDate}
               onChange={date => setStartDate(date)}
               onSelect={handleDateSelect} //when day is clicked onClick function doenst work, onSelect = onClick
-            />
-          </button>
+            />   </button>       
         </div>
         <div className="Detail">
           <aside className="recipeDetail__aside">
@@ -93,11 +92,11 @@ function RecipeDetail() {
               <li>
                 <h4 className="recipeDetail__ingredients" id="ingredients" onClick={() => setOpenViewIngredients(true)}>
                   INGREDIENTS
-                  <h3 className="recipeDetail__changeTitle">Preparation</h3>
+                  <span className="recipeDetail__changeTitle">Preparation</span>
                 </h4>
                 <button
-                  className="button-shop"
-                  recipeShop={recipeDetail.ingredients}
+                    className="button-shop"
+                    recipeShop={recipeDetail.ingredients}
                   onClick={() => {
                     writeShoppingItem(recipeDetail);
                   }}
@@ -120,7 +119,7 @@ function RecipeDetail() {
               <li className="recipeDetail-container__list-two">
                 <h4 className="recipeDetail__ingredients" id="ingredients" onClick={() => setOpenViewIngredients(false)}>
                   PREPARATION
-                  <h3 className="recipeDetail__changeTitle">ingredients</h3>
+                  <span className="recipeDetail__changeTitle">ingredients</span>
                 </h4>
                 <ol className="recipeDetail-container__steps">
                   {recipeDetail.steps.map((step, i) => (

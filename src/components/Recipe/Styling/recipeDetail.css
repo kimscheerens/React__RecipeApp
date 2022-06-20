@@ -54,15 +54,10 @@
   background-color: var(--color-accent-combo);
 }
 .recipeDetail__btn-date {
-  width: 100px;
-  height: 55px;
-  margin-left: 10px;
-  padding: 5px;
-}
-.recipeDetail__btn-detail {
   width: 80px;
-  padding: 5px;
-  margin-top: 10px;
+  height: 20px;
+  border: none;
+  background-color: var(--color-accent-combo);
 }
 .recipeDetail__btn-icon {
   width: 20px;
@@ -105,6 +100,7 @@
           text-decoration: underline wavy var(--color-accent) 2px;
 }
 .recipeDetail__changeTitle {
+  margin-left: 120px;
   font-size: 12px;
   opacity: 55%;
 }

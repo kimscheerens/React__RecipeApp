@@ -1,7 +1,12 @@
+import { addDoc } from "firebase/firestore";
 import React from "react";
 import { writeShoppingItem } from "../../utils/crud";
 
-
+// const writeShoppingCart = async () => {
+//   const payload = {};
+//   const docRef = await addDoc(shoppingCollectionRef, payload);
+//   await addDoc(docRef, payload);
+// }
 
 const ShoppingModal = ({ closeModal, recipeDetail }) => {
   return (
