@@ -1,4 +1,4 @@
-import { useReducer, useRef } from "react";
+import { useReducer } from "react";
 
 const initialState = { count: 0 };
 
@@ -8,14 +8,6 @@ function reducer(state, action) {
       return { count: state.count + action.value };
     case "decrement":
       return { count: state.count - action.value };
-    case "add":
-      return [
-        ...state,
-        {
-          id: state.length,
-          name: action.name,
-        },
-      ];
     case "reset":
       return { count: 0 };
     default:
@@ -24,8 +16,6 @@ function reducer(state, action) {
 }
 
 export default function ShopCalculator({ counting }) {
-  // const inputRef = useRef();
-
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <div className="btn__group">
@@ -39,7 +29,6 @@ export default function ShopCalculator({ counting }) {
       <button onClick={() => dispatch({ type: "reset" })} className="btn__sm">
         reset
       </button>
-      {/* <input onClick={() => dispatch({ type: "add", name: inputRef.current.value })} className="input"></input> */}
     </div>
   );
 }
