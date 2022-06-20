@@ -17,6 +17,12 @@ html {
   box-sizing: inherit;
 }
 
+@media print {
+  .shoppingList {
+    position: absolute;
+    width: 100%;
+  }
+}
 ::-webkit-scrollbar {
   display: none;
 }

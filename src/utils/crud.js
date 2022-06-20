@@ -11,7 +11,7 @@ export const recipeCollectionRef = collection(db, "recept");
 export const writeItem = async () => {
   const payload = {};
   const docRef = await addDoc(recipeCollectionRef, payload);
-  // console.log(docRef.id);
+  await addDoc(docRef, payload);
 };
 
 // R read item recipeCollection
@@ -96,21 +96,21 @@ export const updateRating = async (id, value) => {
 };
 
 /** START of WeekPlanner collection CRUD */
+
+export const calendarRef = collection(db, "WeekPlanner");
 // C create item from WeekPlanner collection
-export const writeCalendarItem = async recipeDetail => {
-  const calendarRef = collection(db, "WeekPlanner");
-  const payload = {
-    id: `${recipeDetail.id}`,
-    title: `${recipeDetail.title}`,
-    date: { onselect },
-  };
-  await addDoc(calendarRef, payload);
-  console.log(calendarRef);
-  console.log(payload);
-  return () => {
-    const data = data();
-  };
-};
+// export const writeCalendarItem = async (recipeDetail) => {
+//   const id = uuidv4();
+
+//   const payload = {
+//     id: id,
+//     desc: `${recipeDetail.title}`,
+//     start: Timestamp.fromDate(onSelect),
+//     end: Timestamp.fromDate(onSelect),
+//   };
+//   await addDoc(calendarRef, payload);
+
+// };
 
 // R read item from WeekPlanner collection
 // U update item from WeekPlanner collection

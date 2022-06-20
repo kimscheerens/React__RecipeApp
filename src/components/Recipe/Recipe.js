@@ -1,19 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {
-  updateRecipe,
   deleteItem,
   recipeCollectionRef,
   writeFavoItem,
 } from "../../utils/crud";
-import { FaHeart, FaRegHeart, FaSearch } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import { onSnapshot, addDoc } from "firebase/firestore";
 import ImagesUpload from "../ImagesUpload";
 
 // this is the CRUD for recipe
 
-function Recipe() {
+function Recipe( ) {
   const [imageUrl, setImageUrl] = useState(null);
   const [recipes, setRecipes] = useState([]);
   const [form, setForm] = useState({
@@ -28,8 +27,6 @@ function Recipe() {
   });
   /**popup to create a recipe */
   const [popupActive, setPopupActive] = useState(false);
-  /** modal to update a recipe */
-  const [openModal, setOpenModal] = useState(false);
 
   // to query on the data , get the pagination: https://firebase.google.com/docs/firestore/query-data/query-cursors
 
@@ -318,8 +315,8 @@ function Recipe() {
                 </button>
               </div>
               <div className="two_buttons">
-                <button type="submit">Submit</button>
-                <button type="button" class="remove" onClick={() => setPopupActive(false)}>
+                <button type="submit" >Submit</button>
+                    <button type="button" class="remove" onClick={() => setPopupActive(false)}>
                   Close
                 </button>
               </div>

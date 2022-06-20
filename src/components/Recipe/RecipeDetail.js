@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { FaHeart, FaRegHeart, FaSleigh } from "react-icons/fa";
-import { deleteItem, writeShoppingItem, writeFavoItem, writeCalendarItem } from "../../utils/crud";
-import { doc, onSnapshot } from "firebase/firestore";
+import { FaRegHeart } from "react-icons/fa";
+import { deleteItem, writeShoppingItem, writeFavoItem, calendarRef } from "../../utils/crud";
+import { addDoc, doc, onSnapshot, Timestamp } from "firebase/firestore";
 import { db } from "../../utils/firebase";
 import { useParams } from "@gatsbyjs/reach-router";
 import { UseCountingPeople } from "./UseCountingPeople";
@@ -37,8 +37,14 @@ function RecipeDetail() {
     return <div>id='{recipeid}'</div>;
   }
 
-  const handleDateSelect = e => {
-    console.log(e);
+  const handleDateSelect = async e => {
+    const payload = {
+      id: recipeid,
+      desc: `${recipeDetail.title}`,
+      start: Timestamp.fromDate(e),
+      end: Timestamp.fromDate(e),
+    };
+    await addDoc(calendarRef, payload);
   };
 
   return (
@@ -49,7 +55,7 @@ function RecipeDetail() {
         <div key={recipeDetail.recipeid}> </div>
         <h3 className="recipeDetail__subtitle">{recipeDetail.title}</h3>
         <div className="recipeDetail__desc">{recipeDetail.desc}</div>
-        <img className="recipeDetail__img" src={recipeDetail.imageUrl} alt="image of the recipe"></img>
+        <img alt="recipe" className="recipeDetail__img" src={recipeDetail.imageUrl} />
         <div className="recipeDetail__content">
           <button className="recipeDetail__btn" onClick={() => deleteItem(recipeDetail.id)}>
             🗑️
@@ -61,15 +67,15 @@ function RecipeDetail() {
           <button className="recipeDetail__btn">
             <FaRegHeart onClick={() => writeFavoItem(recipeDetail)}></FaRegHeart>
           </button>
-          {/* <button className="recipeDetail__btn-date">
+          <button className="recipeDetail__btn-date">
             <DatePicker
+              dateFormat="dd-MM-yyyy"
               className="recipeDetail__btn-detail"
               selected={startDate}
               onChange={date => setStartDate(date)}
-              onSelect={handleDateSelect} //when day is clicked
-              onClick={() => writeCalendarItem(recipeDetail)}
+              onSelect={handleDateSelect} //when day is clicked onClick function doenst work, onSelect = onClick
             />
-          </button> */}
+          </button>
         </div>
         <div className="Detail">
           <aside className="recipeDetail__aside">

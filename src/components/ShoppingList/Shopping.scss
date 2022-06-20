@@ -55,20 +55,6 @@
 }
 }
 
-.printer {
-  background-color: transparent;
-
-  @media print{
-    * {
-      visibility: none;
-    }
-    .shoppingList-container {
-      visibility: visible;
-      position: absolute;
-      width: 100%;
-    }
-  }
-}
 
 .cart-img{
   height: 30px;
@@ -122,4 +108,10 @@ text-align: left;
   overflow: auto;
   z-index: 20;
   max-height: calc(100vh - 4rem);
+}
+
+.input{
+  width: 25px;
+  height: 25px;
+  margin-top: 12px;
 }

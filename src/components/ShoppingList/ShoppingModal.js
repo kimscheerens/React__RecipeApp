@@ -2,7 +2,8 @@ import React from "react";
 import { writeShoppingItem } from "../../utils/crud";
 
 
-const ShoppingModal = ({ closeModal }) => {
+
+const ShoppingModal = ({ closeModal, recipeDetail }) => {
   return (
     <div className="ShoppingModal">
       <div className="addToCart">
@@ -14,10 +15,9 @@ const ShoppingModal = ({ closeModal }) => {
           <input className="ShoppingModal__input" type="numbre" placeholder="price" />
         </div>
         <button
-          onChange={() => {
-            writeShoppingItem();
+          onClick={() => {
+            writeShoppingItem(recipeDetail);
           }}
-          onClick={() => closeModal(false)}
         >
           add to chart
         </button>

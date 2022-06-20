@@ -15,12 +15,7 @@ const Header = () => {
       <div className="header__container">
         <div className="upper-nav">
           <a href="/" className="upper-nav__logo">
-            <img
-              src={img_icon}
-              alt="letter K in fruit"
-              height="80px"
-              className="upper-nav__img"
-            />
+            <img src={img_icon} alt="letter K in fruit" height="80px" className="upper-nav__img" />
           </a>
         </div>
         <nav className="main-nav">
@@ -91,21 +86,12 @@ const Header = () => {
               ""
             )}
           </ul>
-
           <ThemeSelector />
-
           <li className="nav-item dropdown">
-            <a href="/" className="main-nav__item" component={CreateUser}>
-              <img
-                src={currentUser ? `${img_avatar}` : `${img_head}`}
-                alt="avatar to userprofile"
-                className="avatar"
-                height="40px"
-              ></img>
+            <a href="/" className="main-nav__item" >
+              <img src={currentUser ? `${img_avatar}` : `${img_head}`} alt="avatar to userprofile" className="avatar" height="40px"></img>
             </a>
-            <div>
-              Currently logged in as: {currentUser && currentUser.email}
-            </div>
+            <div>Currently logged in as: {currentUser && currentUser.email}</div>
             <ul className="dropdown-menu">
               <li className="dropdown-item">
                 <a href="/Login" className="main-nav__sub-item">

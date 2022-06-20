@@ -3,8 +3,6 @@ import { storage } from "../utils/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 
-const imageListRef = ref(storage, "Images/");
-
 const ImagesUpload = ({ setImageUrl }) => {
   const [imageUpload, setImageUpload] = useState([]);
 

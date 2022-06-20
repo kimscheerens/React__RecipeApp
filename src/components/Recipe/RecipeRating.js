@@ -17,7 +17,7 @@ const RecipeRating = ({ favoritId, FavoRating }) => {
             type="button"
             key={i}
             className="btn__rating"
-            onClick={() => updateRating(favoritId, { value: i })}
+            onClick={() => updateRating(favoritId, { value: i })}            
           >
             <img
               alt="chefshead white or black"

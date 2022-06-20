@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../../utils/firebase";
-import { useParams } from "@gatsbyjs/reach-router";
 import { v4 } from "uuid";
 
 const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
-  const { recipeId } = useParams();
-
   const [newTitle, setNewTitle] = useState(recipeDetailid.title);
   const [newCategory, setNewCategory] = useState(recipeDetailid.category);
   const [newAllergie, setNewAllergie] = useState(recipeDetailid.allergies);
@@ -98,20 +95,16 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
           >
             <option className="select_box__text">Chose Dinner moment</option>
             <option className="select_box__text" value="Breakfast">
-              {" "}
-              breakfast{" "}
+              breakfast
             </option>
             <option className="select_box__text" value="lunch">
-              {" "}
-              lunch{" "}
+              lunch
             </option>
             <option className="select_box__text" value="dinner">
-              {" "}
-              dinner{" "}
+              dinner
             </option>
             <option className="select_box__text" value="snacks">
-              {" "}
-              snacks{" "}
+              snacks
             </option>
           </select>
         </div>
@@ -192,15 +185,19 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
           }}
         />
         <h3 className="modal__subtitle">ingredients:</h3>
-        {newIngredients.map((newIngredients, i) => (
-          <input className="form-group__input" type="text" key={i} value={recipeDetailid.Ingredients} onChange={e => handleChangeInput(i, e)} />
+        {newIngredients.map((newIngredients, idx) => (
+          <div key={idx}>
+            <input className="form-group__input" type="text" value={recipeDetailid.ingredient} placeholder="ingredient" onChange={e => handleChangeInput(idx, e)} />
+            <input className="form-group__input" type="text" value={recipeDetailid.amount} placeholder="amount" onChange={e => handleChangeInput(idx, e)} />
+            <input className="form-group__input" type="text" value={recipeDetailid.unit} placeholder="unit" onChange={e => handleChangeInput(idx, e)} />
+            <button type="button" onClick={handleAddIngredientField}>
+              +
+            </button>
+            <button type="button" onClicke={handleRemoveIngredientsField}>
+              -
+            </button>
+          </div>
         ))}
-        <button type="button" onClick={handleAddIngredientField}>
-          +
-        </button>
-        <button type="button" onClicke={handleRemoveIngredientsField}>
-          -
-        </button>
 
         <h3 className="modal__subtitle">steps:</h3>
         {newSteps.map((newSteps, i) => (
@@ -213,13 +210,21 @@ const Modal = ({ closeModal, recipeDetailid, setRecipeToEdit }) => {
           <button type="button" onClick={() => closeModal(false)}>
             close
           </button>
-          <button type="button" onClick={() => { handleEdit(recipeId); setRecipeToEdit(null);}}>
+          <button
+            type="button"
+            onClick={() => {
+              handleEdit(recipeDetailid);
+              setRecipeToEdit(null);
+              closeModal(false);
+            }}
+          >
             update Recipe
           </button>
         </div>
       </div>
     </div>
   );
-};
+
+};  
 
 export default Modal;

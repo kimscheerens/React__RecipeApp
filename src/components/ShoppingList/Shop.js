@@ -1,29 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../../utils/firebase";
-import { updateCart, deleteShopping } from "../../utils/crud";
-import { collection, increment, onSnapshot, updateDoc } from "firebase/firestore";
-import { useCounter } from "../../state/useCounter";
+import { deleteShopping } from "../../utils/crud";
+import { collection, onSnapshot, query, where} from "firebase/firestore";
 import ShoppingModal from "./ShoppingModal";
+import ShopCalculator from "./ShopCalculator";
 
 //crud for the shopping
 
-function Shop({ recipeShop, id }) {
+function Shop({ id }) {
   const [openShopModal, setOpenShopModal] = useState(false);
-  console.log(recipeShop);
-  //  const [count, setCount] = useState(`${i.quantity}`);
-  const [count, setCount] = useState(null);
+  const [product, setProduct] = useState([]);
+
+  const [counting, setCounting] = useState(1);
   const [cart, setCart] = useState([]);
-  // const [products, setProducts] = useState({
-  //   id: "",
-  //   ingredient: [{ ingredient, amount, unit }],
-  //   price: "",
-  //   url: "",
-  //   cart: false,
-  // });
 
   // to get all the data from firestore
   const shoppingCollectionRef = collection(db, "shoppingCart");
-  console.log(shoppingCollectionRef);
 
   useEffect(() => {
     onSnapshot(shoppingCollectionRef, snapshot => {
@@ -32,6 +24,22 @@ function Shop({ recipeShop, id }) {
           return {
             id: doc.id,
             ...doc.data(),
+          };
+        })
+      );
+    });
+  }, []);
+
+
+  useEffect(() => {
+    onSnapshot(shoppingCollectionRef, snapshot => {
+      setProduct(
+        snapshot.docs.map(doc => {
+          const dbObj = doc.data();
+          const productData = dbObj.ingredients;
+          console.log(dbObj.ingredients);
+          return {
+           ...productData(),
           };
         })
       );
@@ -60,9 +68,6 @@ function Shop({ recipeShop, id }) {
               <th>unit</th>
               <th>Price</th>
             </tr>
-            <button className="btn__sm" onClick={() => deleteShopping(id)} shoppingId={id}>
-              🗑️ all
-            </button>
           </thead>
           <tbody>
             {cart.map((i, index) => (
@@ -73,27 +78,19 @@ function Shop({ recipeShop, id }) {
                   <img src={i.url} className="cart-img" />
                   <img src={i.image} className="cart-img" />
                 </th>
-                <td>
-                  [i.ingredients].map((i, index)
-                  <li>{i.ingredient}</li>
-                  <li>{i.amount}</li>
-                  <li>{i.unit}</li>)
-                </td>
-                {/* <td>{i.amount}</td>
-                <td>{i.unit}</td>
-                <td>{i.price} €</td> */}
+
+                {product.map((a, idx) => (
+                  <div key={idx}>
+                    <li>(JSON.stringify{a.ingredient})</li>
+                    <li>{a.amount}</li>
+                    <li>{a.unit}</li>
+                  </div>
+                ))}
+
                 <td className="btn__group">
-                  <button onClick={() => setCount(count - 1)} className="btn__sm">
-                    -
-                  </button>
                   <div>{i.quantity}</div>
-                  {count}
-                  <button onClick={() => setCount(count + 1)} className="btn__sm" size="sm">
-                    +
-                  </button>
-                  <button className="btn__sm" onClick={() => deleteShopping(cart.id)} shoppingId={cart.id}>
-                    🗑️
-                  </button>
+
+                  <ShopCalculator counting={counting} setCounting={setCounting} />
                 </td>
               </tr>
             ))}
@@ -107,7 +104,9 @@ function Shop({ recipeShop, id }) {
           </button>
           {openShopModal && <ShoppingModal closeModal={setOpenShopModal} />}
         </table>
-
+        <button className="btn__sm" onClick={() => deleteShopping(id)} shoppingId={id}>
+          🗑️ all
+        </button>
         <div className="total">
           <div className="total__item">
             <h4>TOTAL: {total()} €</h4>
